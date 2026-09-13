@@ -4,5 +4,8 @@
   },
   {
     "question_id":"JEE-MAIN-CHE-2026-000002","exam":"JEE Main","exam_year":2026,"subject":"Chemistry","chapter":"Atomic Structure","topic":"Electronic Configuration","difficulty":"Medium","question_type":"MCQ","question_text":"The maximum number of electrons that can occupy a shell with principal quantum number n = 3 is:","options":["8","18","32","9"],"correct_answer":"18","marks":4,"negative_marks":1,"source":"Study Buddy Original","source_reference":"stage-1-original-bank","tags":["atomic-structure","quantum-numbers"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy","license":"Study Buddy original content"
+  },
+  {
+    "question_id":"JEE-MAIN-CHE-2026-000003","exam":"JEE Main","exam_year":2026,"subject":"Chemistry","chapter":"Periodic Table","topic":"Periodic Trends","difficulty":"Medium","question_type":"MCQ","question_text":"Which element has the largest atomic radius among Li, Na, K and Rb?","options":["Li","Na","K","Rb"],"correct_answer":"Rb","marks":4,"negative_marks":1,"source":"Study Buddy Original","source_reference":"stage-1-original-bank","tags":["periodic-table","atomic-radius","periodic-trends"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy","license":"Study Buddy original content"
   }
 ]
