@@ -6,6 +6,12 @@ A data-first competitive-exam preparation platform for practice, tests, analytic
 
 This repository starts with an exam-aware question/solution data layer. The same stable `question_id` is used in both the question and solution records so the application can retrieve the exact solution for a selected question.
 
+## Stage 2 — Database & Backend ← current
+
+A FastAPI backend now exposes the Stage 1 repository through a stable API. The first implementation reads the JSON data directly; the storage layer can later be migrated to PostgreSQL without changing the frontend-facing API contract.
+
+See `backend/README.md` for setup and endpoints.
+
 ### Current repository layout
 
 ```text
@@ -20,7 +26,12 @@ data/
 │   ├── gakao/mathematics.json
 │   └── sat/{sat_math,sat_reading_and_writing}.json
 ├── taxonomy.json
-└── question_index.json  # generated catalog when the index builder is run
+└── question_index.json
+
+backend/
+├── app.py
+├── requirements.txt
+└── README.md
 
 schema/
 ├── question.schema.json
@@ -71,6 +82,17 @@ The repository currently contains **100 original exam-style questions with 100 m
 
 These are **not claimed to be official PYQs**.
 
+## Backend API
+
+- `GET /health` — API status and question count
+- `GET /exams` — supported exams
+- `GET /subjects?exam=KCET` — subjects for an exam
+- `GET /chapters?exam=KCET&subject=Physics` — chapters
+- `GET /questions` — paginated question listing with filters
+- `GET /questions/{question_id}` — exact question by stable ID
+- `GET /solutions/{question_id}` — exact solution by stable ID
+- `GET /questions/{question_id}/solution` — exact question/solution join
+
 ## Importing more questions
 
 Validate a batch before importing it:
@@ -89,8 +111,6 @@ After adding or changing questions, regenerate the metadata-only catalog:
 python scripts/build_question_index.py
 ```
 
-The generated index is designed for fast filtering by exam, subject, chapter, topic, difficulty, and question type without duplicating full question text.
-
 ## Validation
 
 From the repository root:
@@ -105,8 +125,8 @@ GitHub Actions also runs the validator on pushes and pull requests targeting `ma
 
 ## Roadmap
 
-1. Question & Solution Repository ← **current**
-2. Database & Backend
+1. Question & Solution Repository ✓
+2. Database & Backend ← **current**
 3. Basic Practice Website
 4. Test Engine
 5. Basic Analysis
