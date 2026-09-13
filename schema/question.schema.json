@@ -3,7 +3,7 @@
   "$id": "https://study-buddy.local/schema/question.schema.json",
   "title": "Study Buddy Question",
   "type": "object",
-  "required": ["question_id", "exam", "exam_year", "subject", "chapter", "topic", "difficulty", "question_type", "question_text", "correct_answer", "marks", "negative_marks", "source"],
+  "required": ["question_id", "exam", "exam_year", "subject", "chapter", "topic", "difficulty", "question_type", "question_text", "correct_answer", "marks", "negative_marks", "source", "content_type", "rights_status", "redistribution_allowed"],
   "properties": {
     "question_id": {"type": "string", "pattern": "^[A-Z0-9-]+-[0-9]{4}-[0-9]{6}$"},
     "exam": {"type": "string", "enum": ["JEE Main", "JEE Advanced", "KCET", "MHT-CET", "BITSAT", "GAKAO", "SAT"]},
@@ -20,7 +20,13 @@
     "negative_marks": {"type": "number", "minimum": 0},
     "source": {"type": "string", "minLength": 1},
     "source_reference": {"type": "string"},
-    "tags": {"type": "array", "items": {"type": "string"}}
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "content_type": {"type": "string", "enum": ["original_exam_style", "official_pyq", "licensed_pyq", "public_domain", "open_license", "source_reference_only"]},
+    "rights_status": {"type": "string", "enum": ["study_buddy_owned", "licensed", "public_domain", "open_license", "permission_granted", "pending_verification", "reference_only", "restricted"]},
+    "redistribution_allowed": {"type": "boolean"},
+    "rights_holder": {"type": "string"},
+    "license": {"type": "string"},
+    "license_reference": {"type": "string"}
   },
   "additionalProperties": false
 }
