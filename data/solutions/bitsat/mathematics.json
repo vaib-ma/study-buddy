@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "BITSAT-MAT-2026-000001",
+    "solution_type": "worked_solution",
+    "solution_text": "By the binomial theorem, the x^2 term in (x+1)^4 is C(4,2)x^2. C(4,2) = 4!/(2!2!) = 6.",
+    "final_answer": "6",
+    "tips": ["The coefficient of x^r in (x+1)^n is C(n,r)."]
+  },
+  {
+    "question_id": "BITSAT-MAT-2026-000002",
+    "solution_type": "worked_solution",
+    "solution_text": "Differentiate y = x^3 + 2x to get dy/dx = 3x^2 + 2. At x = 1, dy/dx = 3 + 2 = 5.",
+    "final_answer": "5",
+    "tips": ["Differentiate term-by-term and substitute only after simplifying."]
+  }
+]
