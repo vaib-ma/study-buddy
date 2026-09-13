@@ -1,0 +1,8 @@
+[
+  {
+    "question_id":"JEE-MAIN-CHE-2026-000001","exam":"JEE Main","exam_year":2026,"subject":"Chemistry","chapter":"Some Basic Concepts of Chemistry","topic":"Mole Concept","difficulty":"Easy","question_type":"MCQ","question_text":"How many moles of oxygen atoms are present in 0.50 mol of O2?","options":["0.25 mol","0.50 mol","1.00 mol","2.00 mol"],"correct_answer":"1.00 mol","marks":4,"negative_marks":1,"source":"Study Buddy Original","source_reference":"stage-1-original-bank","tags":["mole-concept","stoichiometry"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy","license":"Study Buddy original content"
+  },
+  {
+    "question_id":"JEE-MAIN-CHE-2026-000002","exam":"JEE Main","exam_year":2026,"subject":"Chemistry","chapter":"Atomic Structure","topic":"Electronic Configuration","difficulty":"Medium","question_type":"MCQ","question_text":"The maximum number of electrons that can occupy a shell with principal quantum number n = 3 is:","options":["8","18","32","9"],"correct_answer":"18","marks":4,"negative_marks":1,"source":"Study Buddy Original","source_reference":"stage-1-original-bank","tags":["atomic-structure","quantum-numbers"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy","license":"Study Buddy original content"
+  }
+]
