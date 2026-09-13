@@ -1,0 +1,4 @@
+[
+  {"question_id":"KCET-PHY-2026-000001","solution_type":"worked_solution","solution_text":"By Ohm's law, I = V/R = 12/6 = 2 A.","final_answer":"2 A","tips":["Use I = V/R when voltage and resistance are known."]},
+  {"question_id":"KCET-PHY-2026-000002","solution_type":"worked_solution","solution_text":"Using the lens relation 1/f = 1/v - 1/u with f = 20 cm and u = -40 cm gives 1/v = 1/20 - 1/40 = 1/40, so v = 40 cm.","final_answer":"40 cm","tips":["Use the Cartesian sign convention consistently in lens problems."]}
+]
