@@ -12,5 +12,19 @@
     "solution_text": "Oxidation corresponds to loss of electrons. A useful memory aid is OIL: Oxidation Is Loss of electrons.",
     "final_answer": "Loss of electrons",
     "tips": ["Reduction is gain of electrons, while oxidation is loss of electrons."]
+  },
+  {
+    "question_id": "MHT-CET-CHE-2026-000003",
+    "solution_type": "conceptual",
+    "solution_text": "The ideal gas equation is PV = nRT, where P is pressure, V is volume, n is amount of gas, R is the gas constant, and T is absolute temperature.",
+    "final_answer": "PV = nRT",
+    "tips": ["Use temperature in kelvin when applying the ideal gas equation."]
+  },
+  {
+    "question_id": "MHT-CET-CHE-2026-000004",
+    "solution_type": "conceptual",
+    "solution_text": "For an exothermic reaction, heat behaves like a product. Increasing temperature favors the reverse direction to absorb the added heat, so equilibrium shifts toward the reactants.",
+    "final_answer": "Reactants",
+    "tips": ["Apply Le Chatelier's principle: heating an exothermic equilibrium favors the endothermic direction."]
   }
 ]
