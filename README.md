@@ -11,20 +11,14 @@ This repository starts with an exam-aware question/solution data layer. The same
 ```text
 data/
 ├── questions/
-│   ├── jee_main/
-│   │   ├── physics.json
-│   │   ├── chemistry.json
-│   │   └── mathematics.json
-│   ├── jee_advanced/
-│   │   ├── physics.json
-│   │   ├── chemistry.json
-│   │   └── mathematics.json
+│   ├── jee_main/{physics,chemistry,mathematics}.json
+│   ├── jee_advanced/{physics,chemistry,mathematics}.json
 │   ├── cet/
-│   │   ├── kcet/physics.json
-│   │   └── mht_cet/physics.json
-│   ├── bitsat/physics.json
+│   │   ├── kcet/{physics,chemistry,mathematics}.json
+│   │   └── mht_cet/{physics,chemistry,mathematics}.json
+│   ├── bitsat/{physics,chemistry,mathematics}.json
 │   ├── gakao/mathematics.json
-│   └── sat/sat_math.json
+│   └── sat/{sat_math,sat_reading_and_writing}.json
 └── solutions/
     └── matching exam/subject files
 
@@ -50,7 +44,7 @@ The ID should never be reused for another question.
 
 ## Content model
 
-Stage 1 now records content provenance and reuse status on every question:
+Stage 1 records content provenance and reuse status on every question:
 
 - `original_exam_style` — newly authored Study Buddy question matching an exam's style.
 - `official_pyq` — official past-exam question; reuse must be verified before redistribution.
@@ -63,15 +57,15 @@ Every question also has `rights_status` and `redistribution_allowed`. See `docs/
 
 ## Current Stage 1 bank
 
-The repository currently contains original exam-style questions and worked solutions covering all seven supported exam categories:
+The repository currently contains **36 original exam-style questions with 36 matching worked/conceptual solutions** across all seven supported exam categories:
 
-- JEE Main — Physics, Chemistry, Mathematics
-- JEE Advanced — Physics, Chemistry, Mathematics
-- KCET — Physics
-- MHT-CET — Physics
-- BITSAT — Physics
-- GAKAO — Mathematics
-- SAT — SAT Math
+- JEE Main — Physics, Chemistry, Mathematics (6)
+- JEE Advanced — Physics, Chemistry, Mathematics (6)
+- KCET — Physics, Chemistry, Mathematics (6)
+- MHT-CET — Physics, Chemistry, Mathematics (6)
+- BITSAT — Physics, Chemistry, Mathematics (6)
+- GAKAO — Mathematics (2)
+- SAT — SAT Math, Reading and Writing (4)
 
 These are **not claimed to be official PYQs**.
 
@@ -93,7 +87,9 @@ From the repository root:
 python scripts/validate_question_bank.py
 ```
 
-The validator checks JSON structure, required fields, ID format/uniqueness, question-to-solution matching, answer consistency, and supported taxonomy values.
+The validator checks JSON structure, required fields, ID format/uniqueness, question-to-solution matching, answer consistency, rights metadata, and supported taxonomy values.
+
+GitHub Actions also runs the validator on pushes and pull requests targeting `main`.
 
 ## Roadmap
 
