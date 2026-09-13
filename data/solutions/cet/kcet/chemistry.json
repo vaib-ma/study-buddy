@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "KCET-CHE-2026-000001",
+    "solution_type": "worked_solution",
+    "solution_text": "Sodium readily loses an electron while chlorine readily gains one, producing Na+ and Cl- ions. Their electrostatic attraction forms an ionic compound.",
+    "final_answer": "Na and Cl",
+    "tips": ["Large electronegativity differences commonly favor ionic bonding."]
+  },
+  {
+    "question_id": "KCET-CHE-2026-000002",
+    "solution_type": "worked_solution",
+    "solution_text": "Molarity is moles of solute divided by volume of solution in litres. M = 0.50/2.0 = 0.25 M.",
+    "final_answer": "0.25 M",
+    "tips": ["Convert volume to litres before calculating molarity."]
+  }
+]
