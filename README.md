@@ -19,19 +19,21 @@ data/
 │   ├── bitsat/{physics,chemistry,mathematics}.json
 │   ├── gakao/mathematics.json
 │   └── sat/{sat_math,sat_reading_and_writing}.json
-└── solutions/
-    └── matching exam/subject files
+├── taxonomy.json
+└── question_index.json  # generated catalog when the index builder is run
 
 schema/
 ├── question.schema.json
 └── solution.schema.json
 
 docs/
-└── CONTENT_RIGHTS.md
+├── CONTENT_RIGHTS.md
+└── STAGE1_DATA_MODEL.md
 
 scripts/
 ├── validate_question_bank.py
-└── import_questions.py
+├── import_questions.py
+└── build_question_index.py
 ```
 
 ## Question IDs
@@ -78,6 +80,16 @@ python scripts/import_questions.py --input incoming/questions.jsonl --solutions 
 ```
 
 Then run without `--dry-run` to import it.
+
+## Building the filter index
+
+After adding or changing questions, regenerate the metadata-only catalog:
+
+```bash
+python scripts/build_question_index.py
+```
+
+The generated index is designed for fast filtering by exam, subject, chapter, topic, difficulty, and question type without duplicating full question text.
 
 ## Validation
 
