@@ -1,0 +1,4 @@
+[
+  {"question_id":"MHT-CET-PHY-2026-000001","solution_type":"worked_solution","solution_text":"Coulomb's law gives F proportional to 1/r^2. Doubling r changes the force by a factor of 1/(2^2) = 1/4.","final_answer":"One-fourth","tips":["Track how a quantity scales with distance before calculating numbers."]},
+  {"question_id":"MHT-CET-PHY-2026-000002","solution_type":"conceptual","solution_text":"Forward bias reduces the depletion-region barrier and allows substantial charge-carrier current through the diode.","final_answer":"Forward biased","tips":["Forward bias lowers the effective junction barrier."]}
+]
