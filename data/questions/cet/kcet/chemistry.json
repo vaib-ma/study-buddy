@@ -1,44 +1,6 @@
 [
-  {
-    "question_id": "KCET-CHE-2026-000001",
-    "exam": "KCET",
-    "exam_year": 2026,
-    "subject": "Chemistry",
-    "chapter": "Chemical Bonding",
-    "topic": "Ionic Bond",
-    "difficulty": "Easy",
-    "question_type": "MCQ",
-    "question_text": "Which pair of elements is most likely to form an ionic compound?",
-    "options": ["Na and Cl", "C and H", "N and O", "Cl and Br"],
-    "correct_answer": "Na and Cl",
-    "marks": 1,
-    "negative_marks": 0,
-    "source": "Study Buddy original exam-style question",
-    "tags": ["original", "KCET-style", "chemical bonding"],
-    "content_type": "original_exam_style",
-    "rights_status": "study_buddy_owned",
-    "redistribution_allowed": true,
-    "rights_holder": "Study Buddy"
-  },
-  {
-    "question_id": "KCET-CHE-2026-000002",
-    "exam": "KCET",
-    "exam_year": 2026,
-    "subject": "Chemistry",
-    "chapter": "Solutions",
-    "topic": "Molarity",
-    "difficulty": "Easy",
-    "question_type": "MCQ",
-    "question_text": "What is the molarity of a solution containing 0.50 mol of solute in 2.0 L of solution?",
-    "options": ["0.10 M", "0.25 M", "1.0 M", "2.5 M"],
-    "correct_answer": "0.25 M",
-    "marks": 1,
-    "negative_marks": 0,
-    "source": "Study Buddy original exam-style question",
-    "tags": ["original", "KCET-style", "solutions"],
-    "content_type": "original_exam_style",
-    "rights_status": "study_buddy_owned",
-    "redistribution_allowed": true,
-    "rights_holder": "Study Buddy"
-  }
+  {"question_id":"KCET-CHE-2026-000001","exam":"KCET","exam_year":2026,"subject":"Chemistry","chapter":"Chemical Bonding","topic":"Ionic Bond","difficulty":"Easy","question_type":"MCQ","question_text":"Which pair of elements is most likely to form an ionic compound?","options":["Na and Cl","C and H","N and O","Cl and Br"],"correct_answer":"Na and Cl","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","chemical bonding"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"KCET-CHE-2026-000002","exam":"KCET","exam_year":2026,"subject":"Chemistry","chapter":"Solutions","topic":"Molarity","difficulty":"Easy","question_type":"MCQ","question_text":"What is the molarity of a solution containing 0.50 mol of solute in 2.0 L of solution?","options":["0.10 M","0.25 M","1.0 M","2.5 M"],"correct_answer":"0.25 M","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","solutions"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"KCET-CHE-2026-000003","exam":"KCET","exam_year":2026,"subject":"Chemistry","chapter":"Some Basic Concepts of Chemistry","topic":"Mole Concept","difficulty":"Easy","question_type":"MCQ","question_text":"How many moles of water are present in 18 g of H2O?","options":["0.5 mol","1 mol","2 mol","18 mol"],"correct_answer":"1 mol","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","mole-concept"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"KCET-CHE-2026-000004","exam":"KCET","exam_year":2026,"subject":"Chemistry","chapter":"Periodic Classification","topic":"Atomic Radius","difficulty":"Medium","question_type":"MCQ","question_text":"Across a period from left to right, the atomic radius generally:","options":["Increases","Decreases","Remains constant","First increases then always remains constant"],"correct_answer":"Decreases","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","periodic-trends"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"}
 ]
