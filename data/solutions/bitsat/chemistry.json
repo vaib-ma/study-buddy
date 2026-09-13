@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "BITSAT-CHE-2026-000001",
+    "solution_type": "conceptual",
+    "solution_text": "The azimuthal quantum number l determines the subshell and hence the shape of the orbital. For example, l = 0 gives s and l = 1 gives p orbitals.",
+    "final_answer": "Azimuthal quantum number l",
+    "tips": ["Remember: n mainly relates to shell/energy, while l identifies the subshell shape."]
+  },
+  {
+    "question_id": "BITSAT-CHE-2026-000002",
+    "solution_type": "conceptual",
+    "solution_text": "An exothermic reaction releases heat to the surroundings. At constant pressure, this corresponds to a negative enthalpy change.",
+    "final_answer": "Negative",
+    "tips": ["Heat released by a system corresponds to delta H < 0 at constant pressure."]
+  }
+]
