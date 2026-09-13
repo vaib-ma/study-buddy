@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "description": "Stage 1 starter taxonomy for the Study Buddy question repository. This is an application taxonomy, not a claim of official exam syllabus completeness.",
+  "exams": [
+    {"id":"jee_main","name":"JEE Main","subjects":["Physics","Chemistry","Mathematics"]},
+    {"id":"jee_advanced","name":"JEE Advanced","subjects":["Physics","Chemistry","Mathematics"]},
+    {"id":"kcet","name":"KCET","subjects":["Physics","Chemistry","Mathematics"]},
+    {"id":"mht_cet","name":"MHT-CET","subjects":["Physics","Chemistry","Mathematics"]},
+    {"id":"bitsat","name":"BITSAT","subjects":["Physics","Chemistry","Mathematics"]},
+    {"id":"gakao","name":"GAKAO","subjects":["Mathematics"]},
+    {"id":"sat","name":"SAT","subjects":["SAT Math","SAT Reading and Writing"]}
+  ],
+  "difficulty_levels":["Easy","Medium","Hard"],
+  "question_types":["MCQ","Multiple Correct","Numerical","Integer","Assertion Reason","Grid-In"],
+  "content_types":["original_exam_style","official_pyq","licensed_pyq","public_domain","open_license","source_reference_only"],
+  "rights_statuses":["study_buddy_owned","licensed","public_domain","open_license","permission_granted","pending_verification","reference_only","restricted"],
+  "rules": {
+    "question_id_is_immutable": true,
+    "solution_question_id_must_match": true,
+    "unverified_content_must_not_be_redistributable": true,
+    "original_exam_style_is_study_buddy_owned": true
+  }
+}
