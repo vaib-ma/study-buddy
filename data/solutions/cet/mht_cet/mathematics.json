@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "MHT-CET-MAT-2026-000001",
+    "solution_type": "worked_solution",
+    "solution_text": "The first term is 3 and the common difference is 4. The fifth term is a + 4d = 3 + 16 = 19.",
+    "final_answer": "19",
+    "tips": ["Use a_n = a + (n-1)d for the nth term of an AP."]
+  },
+  {
+    "question_id": "MHT-CET-MAT-2026-000002",
+    "solution_type": "worked_solution",
+    "solution_text": "The even outcomes are 2, 4 and 6, giving 3 favorable outcomes out of 6 equally likely outcomes. Probability = 3/6 = 1/2.",
+    "final_answer": "1/2",
+    "tips": ["Probability equals favorable outcomes divided by total equally likely outcomes."]
+  }
+]
