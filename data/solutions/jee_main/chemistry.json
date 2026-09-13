@@ -12,5 +12,12 @@
     "solution_text":"The maximum number of electrons in a shell is 2n^2. For n = 3, the maximum is 2 x 3^2 = 18.",
     "final_answer":"18",
     "tips":["Remember the shell-capacity relation 2n^2."]
+  },
+  {
+    "question_id":"JEE-MAIN-CHE-2026-000003",
+    "solution_type":"conceptual",
+    "solution_text":"Atomic radius generally increases down a group because additional electron shells are added. Among Li, Na, K and Rb, Rb is lowest in the group and has the largest atomic radius.",
+    "final_answer":"Rb",
+    "tips":["Down a group, increasing shell number generally increases atomic size."]
   }
 ]
