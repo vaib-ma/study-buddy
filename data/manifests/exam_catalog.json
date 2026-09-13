@@ -1,0 +1,16 @@
+{
+  "exams": [
+    {"id":"jee_main","name":"JEE Main","category":"engineering","status":"pipeline-ready"},
+    {"id":"jee_advanced","name":"JEE Advanced","category":"engineering","status":"pipeline-ready"},
+    {"id":"kcet","name":"KCET","category":"state-cet","status":"pipeline-ready"},
+    {"id":"mht_cet","name":"MHT-CET","category":"state-cet","status":"pipeline-ready"},
+    {"id":"bitsat","name":"BITSAT","category":"engineering","status":"pipeline-ready"},
+    {"id":"gakao","name":"GAKAO","category":"competitive","status":"pipeline-ready"},
+    {"id":"sat","name":"SAT","category":"college-admissions","status":"pipeline-ready"}
+  ],
+  "content_policy": {
+    "allowed_sources": ["original", "licensed", "public-domain", "appropriately reusable/open-license"],
+    "copyrighted_reproduction_requires_permission": true,
+    "scraping_question_banks": false
+  }
+}
