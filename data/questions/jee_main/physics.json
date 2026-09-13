@@ -1,0 +1,20 @@
+[
+  {
+    "question_id": "JEE-MAIN-PHY-2026-000001",
+    "exam": "JEE Main",
+    "exam_year": 2026,
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Dimensional Analysis",
+    "difficulty": "Medium",
+    "question_type": "MCQ",
+    "question_text": "If x = at^2, where x is length and t is time, what is the dimensional formula of a?",
+    "options": ["[LT^-1]", "[LT^-2]", "[L^2T^-1]", "[T^-2]"],
+    "correct_answer": "[LT^-2]",
+    "marks": 4,
+    "negative_marks": 1,
+    "source": "Original Study Buddy sample",
+    "source_reference": "stage-1-demo",
+    "tags": ["dimensions", "units", "kinematics"]
+  }
+]
