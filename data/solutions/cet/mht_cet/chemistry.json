@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "MHT-CET-CHE-2026-000001",
+    "solution_type": "conceptual",
+    "solution_text": "For a first-order reaction, the rate constant has dimensions of inverse time, so its unit is s^-1.",
+    "final_answer": "s^-1",
+    "tips": ["The order of a reaction determines the units of its rate constant."]
+  },
+  {
+    "question_id": "MHT-CET-CHE-2026-000002",
+    "solution_type": "conceptual",
+    "solution_text": "Oxidation corresponds to loss of electrons. A useful memory aid is OIL: Oxidation Is Loss of electrons.",
+    "final_answer": "Loss of electrons",
+    "tips": ["Reduction is gain of electrons, while oxidation is loss of electrons."]
+  }
+]
