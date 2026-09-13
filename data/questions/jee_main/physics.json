@@ -44,5 +44,28 @@
     "redistribution_allowed": true,
     "rights_holder": "Study Buddy",
     "license": "Study Buddy original content"
+  },
+  {
+    "question_id": "JEE-MAIN-PHY-2026-000003",
+    "exam": "JEE Main",
+    "exam_year": 2026,
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Newton's Second Law",
+    "difficulty": "Easy",
+    "question_type": "MCQ",
+    "question_text": "A net force of 12 N acts on a body of mass 3 kg. Its acceleration is:",
+    "options": ["2 m/s^2", "3 m/s^2", "4 m/s^2", "36 m/s^2"],
+    "correct_answer": "4 m/s^2",
+    "marks": 4,
+    "negative_marks": 1,
+    "source": "Study Buddy Original",
+    "source_reference": "stage-1-original-bank",
+    "tags": ["newton-laws", "force", "acceleration"],
+    "content_type": "original_exam_style",
+    "rights_status": "study_buddy_owned",
+    "redistribution_allowed": true,
+    "rights_holder": "Study Buddy",
+    "license": "Study Buddy original content"
   }
 ]
