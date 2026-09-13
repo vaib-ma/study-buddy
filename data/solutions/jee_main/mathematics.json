@@ -1,0 +1,4 @@
+[
+  {"question_id":"JEE-MAIN-MAT-2026-000001","solution_type":"worked_solution","solution_text":"For x^2 - 5x + 6 = 0, the sum of roots is -b/a. Here a = 1 and b = -5, so alpha + beta = 5.","final_answer":"5","tips":["Use the standard relations alpha + beta = -b/a and alpha beta = c/a."]},
+  {"question_id":"JEE-MAIN-MAT-2026-000002","solution_type":"worked_solution","solution_text":"For an AP, a_n = a + (n-1)d. Here a = 3, d = 4 and n = 10, so a_10 = 3 + 9(4) = 39.","final_answer":"39","tips":["Identify the first term and common difference before applying the nth-term formula."]}
+]
