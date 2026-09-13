@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "SAT-RW-2026-000001",
+    "solution_type": "conceptual",
+    "solution_text": "The subject is 'collection,' which is singular, so the singular verb 'is available' is required.",
+    "final_answer": "is available",
+    "tips": ["Ignore intervening plural nouns and match the verb with the main subject."]
+  },
+  {
+    "question_id": "SAT-RW-2026-000002",
+    "solution_type": "conceptual",
+    "solution_text": "The second sentence describes a response caused by the unexpected results, so 'Therefore' correctly signals the consequence.",
+    "final_answer": "Therefore",
+    "tips": ["Identify the logical relationship between the two sentences before choosing a transition."]
+  }
+]
