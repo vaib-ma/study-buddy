@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Import Study Buddy questions and solutions from JSONL or JSON files.
 
-The importer validates records, enforces stable question IDs, and writes
-questions and solutions to separate exam/subject files. It never downloads or
-scrapes question content.
+The importer validates records, enforces stable question IDs, checks content-rights
+metadata, and writes questions and solutions to separate exam/subject files.
+It never downloads or scrapes question content.
 """
 from __future__ import annotations
 
@@ -19,6 +19,8 @@ ALLOWED_EXAMS = {"JEE Main", "JEE Advanced", "KCET", "MHT-CET", "BITSAT", "GAKAO
 ALLOWED_SUBJECTS = {"Physics", "Chemistry", "Mathematics", "SAT Math", "SAT Reading and Writing"}
 ALLOWED_DIFFICULTIES = {"Easy", "Medium", "Hard"}
 ALLOWED_TYPES = {"MCQ", "Multiple Correct", "Numerical", "Integer", "Assertion Reason", "Grid-In"}
+ALLOWED_CONTENT_TYPES = {"original_exam_style", "official_pyq", "licensed_pyq", "public_domain", "open_license", "source_reference_only"}
+ALLOWED_RIGHTS = {"study_buddy_owned", "licensed", "public_domain", "open_license", "permission_granted", "pending_verification", "reference_only", "restricted"}
 
 
 def load_records(path: Path) -> list[dict[str, Any]]:
@@ -34,7 +36,12 @@ def load_records(path: Path) -> list[dict[str, Any]]:
 
 
 def validate_question(q: dict[str, Any]) -> list[str]:
-    required = ["question_id", "exam", "exam_year", "subject", "chapter", "topic", "difficulty", "question_type", "question_text", "correct_answer", "marks", "negative_marks", "source"]
+    required = [
+        "question_id", "exam", "exam_year", "subject", "chapter", "topic",
+        "difficulty", "question_type", "question_text", "correct_answer",
+        "marks", "negative_marks", "source", "content_type",
+        "rights_status", "redistribution_allowed",
+    ]
     errors = [f"missing {field}" for field in required if field not in q]
     if errors:
         return errors
@@ -43,10 +50,16 @@ def validate_question(q: dict[str, Any]) -> list[str]:
     if q["subject"] not in ALLOWED_SUBJECTS: errors.append("unsupported subject")
     if q["difficulty"] not in ALLOWED_DIFFICULTIES: errors.append("unsupported difficulty")
     if q["question_type"] not in ALLOWED_TYPES: errors.append("unsupported question_type")
+    if q["content_type"] not in ALLOWED_CONTENT_TYPES: errors.append("unsupported content_type")
+    if q["rights_status"] not in ALLOWED_RIGHTS: errors.append("unsupported rights_status")
+    if not isinstance(q["redistribution_allowed"], bool): errors.append("redistribution_allowed must be boolean")
     if not isinstance(q["exam_year"], int) or not 2000 <= q["exam_year"] <= 2100: errors.append("invalid exam_year")
     if not isinstance(q["question_text"], str) or not q["question_text"].strip(): errors.append("empty question_text")
     if not isinstance(q["correct_answer"], str) or not q["correct_answer"].strip(): errors.append("empty correct_answer")
     if not isinstance(q["negative_marks"], (int, float)) or q["negative_marks"] < 0: errors.append("invalid negative_marks")
+    if q["content_type"] == "original_exam_style" and q["rights_status"] != "study_buddy_owned": errors.append("original_exam_style must be study_buddy_owned")
+    if q["rights_status"] in {"pending_verification", "reference_only", "restricted"} and q["redistribution_allowed"]:
+        errors.append("redistribution_allowed cannot be true for an unverified/reference/restricted rights status")
     return errors
 
 
