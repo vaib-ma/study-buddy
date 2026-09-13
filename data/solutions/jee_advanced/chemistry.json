@@ -1,0 +1,4 @@
+[
+  {"question_id":"JEE-ADV-CHE-2026-000001","solution_type":"worked_solution","solution_text":"H2 has two electrons occupying the bonding molecular orbital. Bond order = (bonding electrons - antibonding electrons)/2 = (2-0)/2 = 1.","final_answer":"1","tips":["Use bond order = (Nb - Na)/2 for a molecular-orbital configuration."]},
+  {"question_id":"JEE-ADV-CHE-2026-000002","solution_type":"conceptual","solution_text":"At constant temperature and pressure, a process is spontaneous when delta G is less than zero. At equilibrium, delta G is zero.","final_answer":"Negative","tips":["Remember the spontaneity criterion: delta G < 0 at constant temperature and pressure."]}
+]
