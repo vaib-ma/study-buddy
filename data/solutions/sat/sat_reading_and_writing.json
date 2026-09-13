@@ -1,30 +1,8 @@
 [
-  {
-    "question_id": "SAT-RW-2026-000001",
-    "solution_type": "conceptual",
-    "solution_text": "The subject is 'collection,' which is singular, so the singular verb 'is available' is required.",
-    "final_answer": "is available",
-    "tips": ["Ignore intervening plural nouns and match the verb with the main subject."]
-  },
-  {
-    "question_id": "SAT-RW-2026-000002",
-    "solution_type": "conceptual",
-    "solution_text": "The second sentence describes a response caused by the unexpected results, so 'Therefore' correctly signals the consequence.",
-    "final_answer": "Therefore",
-    "tips": ["Identify the logical relationship between the two sentences before choosing a transition."]
-  },
-  {
-    "question_id": "SAT-RW-2026-000003",
-    "solution_type": "conceptual",
-    "solution_text": "A colon can introduce an explanation or closely related statement after a complete independent clause. The clause before the blank is complete, and the material after the blank explains the conclusion.",
-    "final_answer": ":",
-    "tips": ["Check whether the text before the punctuation is a complete sentence before using a colon."]
-  },
-  {
-    "question_id": "SAT-RW-2026-000004",
-    "solution_type": "conceptual",
-    "solution_text": "The passage lists three environmental effects of rooftop gardens: lowering building temperatures, providing habitat, and reducing stormwater runoff. The first option summarizes all three effects and therefore states the central idea.",
-    "final_answer": "Rooftop gardens can provide several environmental benefits.",
-    "tips": ["For a central-idea question, choose the option that captures the main point without adding unsupported details."]
-  }
+  {"question_id":"SAT-RW-2026-000001","solution_type":"conceptual","solution_text":"The subject is 'collection,' which is singular, so the singular verb 'is available' is required.","final_answer":"is available","tips":["Ignore intervening plural nouns and match the verb with the main subject."]},
+  {"question_id":"SAT-RW-2026-000002","solution_type":"conceptual","solution_text":"The second sentence describes a response caused by the unexpected results, so 'Therefore' correctly signals the consequence.","final_answer":"Therefore","tips":["Identify the logical relationship between the two sentences before choosing a transition."]},
+  {"question_id":"SAT-RW-2026-000003","solution_type":"conceptual","solution_text":"A colon can introduce an explanation after a complete independent clause. The first part is complete, and the second part explains the conclusion.","final_answer":":","tips":["Check whether the text before the punctuation is a complete sentence before using a colon."]},
+  {"question_id":"SAT-RW-2026-000004","solution_type":"conceptual","solution_text":"The passage gives three environmental effects of rooftop gardens. The first option summarizes those effects without adding unsupported information.","final_answer":"Rooftop gardens can provide several environmental benefits.","tips":["Choose the central idea that covers the main information rather than one isolated detail."]},
+  {"question_id":"SAT-RW-2026-000005","solution_type":"conceptual","solution_text":"With neither...nor, the verb agrees with the subject closer to it. The closer subject is the singular 'lead researcher,' so 'was' is correct.","final_answer":"was","tips":["For neither...nor, match the verb with the nearer subject."]},
+  {"question_id":"SAT-RW-2026-000006","solution_type":"conceptual","solution_text":"The first sentence presents positive results, while the second introduces a limitation or caution. 'However' correctly signals this contrast.","final_answer":"However","tips":["Look for a contrast when the second sentence qualifies or limits the first."]}
 ]
