@@ -2,8 +2,15 @@
   {
     "question_id": "JEE-MAIN-PHY-2026-000001",
     "solution_type": "worked_solution",
-    "solution_text": "From x = at^2, we get a = x/t^2. Since x has dimensions L and t has dimensions T, a has dimensions L T^-2.",
+    "solution_text": "From x = at^2, a = x/t^2. Since x has dimensions L and t has dimensions T, a has dimensions L T^-2.",
     "final_answer": "[LT^-2]",
-    "tips": ["For a defining equation, isolate the requested quantity first.", "Check dimensions term-by-term before substituting numerical values."]
+    "tips": ["Isolate the requested quantity first.", "Check dimensions term-by-term before substituting values."]
+  },
+  {
+    "question_id": "JEE-MAIN-PHY-2026-000002",
+    "solution_type": "worked_solution",
+    "solution_text": "Use v = u + at. The particle starts from rest, so u = 0. Therefore v = 0 + (2)(5) = 10 m/s.",
+    "final_answer": "10 m/s",
+    "tips": ["For constant acceleration, start with the standard kinematic equations.", "Starting from rest means initial velocity is zero."]
   }
 ]
