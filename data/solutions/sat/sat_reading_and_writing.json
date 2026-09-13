@@ -12,5 +12,19 @@
     "solution_text": "The second sentence describes a response caused by the unexpected results, so 'Therefore' correctly signals the consequence.",
     "final_answer": "Therefore",
     "tips": ["Identify the logical relationship between the two sentences before choosing a transition."]
+  },
+  {
+    "question_id": "SAT-RW-2026-000003",
+    "solution_type": "conceptual",
+    "solution_text": "A colon can introduce an explanation or closely related statement after a complete independent clause. The clause before the blank is complete, and the material after the blank explains the conclusion.",
+    "final_answer": ":",
+    "tips": ["Check whether the text before the punctuation is a complete sentence before using a colon."]
+  },
+  {
+    "question_id": "SAT-RW-2026-000004",
+    "solution_type": "conceptual",
+    "solution_text": "The passage lists three environmental effects of rooftop gardens: lowering building temperatures, providing habitat, and reducing stormwater runoff. The first option summarizes all three effects and therefore states the central idea.",
+    "final_answer": "Rooftop gardens can provide several environmental benefits.",
+    "tips": ["For a central-idea question, choose the option that captures the main point without adding unsupported details."]
   }
 ]
