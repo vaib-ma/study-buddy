@@ -1,0 +1,4 @@
+[
+  {"question_id":"GAKAO-MAT-2026-000001","solution_type":"worked_solution","solution_text":"Square x + 1/x = 5. Then x^2 + 2 + 1/x^2 = 25, so x^2 + 1/x^2 = 23.","final_answer":"23","tips":["When an expression contains x + 1/x, squaring it often creates the required x^2 + 1/x^2 form."]},
+  {"question_id":"GAKAO-MAT-2026-000002","solution_type":"worked_solution","solution_text":"A two-digit number divisible by 5 ends in 0 or 5. If it ends in 0, there are 9 choices for the tens digit. If it ends in 5, there are 8 choices because the tens digit can be 1 through 9 except 5. Total = 9 + 8 = 17.","final_answer":"17","tips":["Split counting problems into mutually exclusive cases."]}
+]
