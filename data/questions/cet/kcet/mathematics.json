@@ -1,44 +1,6 @@
 [
-  {
-    "question_id": "KCET-MAT-2026-000001",
-    "exam": "KCET",
-    "exam_year": 2026,
-    "subject": "Mathematics",
-    "chapter": "Quadratic Equations",
-    "topic": "Roots",
-    "difficulty": "Easy",
-    "question_type": "MCQ",
-    "question_text": "If the roots of x^2 - 7x + 12 = 0 are alpha and beta, what is alpha + beta?",
-    "options": ["3", "4", "7", "12"],
-    "correct_answer": "7",
-    "marks": 1,
-    "negative_marks": 0,
-    "source": "Study Buddy original exam-style question",
-    "tags": ["original", "KCET-style", "quadratic equations"],
-    "content_type": "original_exam_style",
-    "rights_status": "study_buddy_owned",
-    "redistribution_allowed": true,
-    "rights_holder": "Study Buddy"
-  },
-  {
-    "question_id": "KCET-MAT-2026-000002",
-    "exam": "KCET",
-    "exam_year": 2026,
-    "subject": "Mathematics",
-    "chapter": "Trigonometry",
-    "topic": "Standard Angles",
-    "difficulty": "Easy",
-    "question_type": "MCQ",
-    "question_text": "What is the value of sin 30 degrees?",
-    "options": ["0", "1/2", "sqrt(3)/2", "1"],
-    "correct_answer": "1/2",
-    "marks": 1,
-    "negative_marks": 0,
-    "source": "Study Buddy original exam-style question",
-    "tags": ["original", "KCET-style", "trigonometry"],
-    "content_type": "original_exam_style",
-    "rights_status": "study_buddy_owned",
-    "redistribution_allowed": true,
-    "rights_holder": "Study Buddy"
-  }
+  {"question_id":"KCET-MAT-2026-000001","exam":"KCET","exam_year":2026,"subject":"Mathematics","chapter":"Quadratic Equations","topic":"Roots","difficulty":"Easy","question_type":"MCQ","question_text":"If the roots of x^2 - 7x + 12 = 0 are alpha and beta, what is alpha + beta?","options":["3","4","7","12"],"correct_answer":"7","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","quadratic equations"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"KCET-MAT-2026-000002","exam":"KCET","exam_year":2026,"subject":"Mathematics","chapter":"Trigonometry","topic":"Standard Angles","difficulty":"Easy","question_type":"MCQ","question_text":"What is the value of sin 30 degrees?","options":["0","1/2","sqrt(3)/2","1"],"correct_answer":"1/2","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","trigonometry"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"KCET-MAT-2026-000003","exam":"KCET","exam_year":2026,"subject":"Mathematics","chapter":"Sequences and Series","topic":"Geometric Progression","difficulty":"Medium","question_type":"MCQ","question_text":"The common ratio of the GP 3, 6, 12, 24, ... is:","options":["1","2","3","4"],"correct_answer":"2","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","GP"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"KCET-MAT-2026-000004","exam":"KCET","exam_year":2026,"subject":"Mathematics","chapter":"Coordinate Geometry","topic":"Distance Formula","difficulty":"Easy","question_type":"MCQ","question_text":"The distance between the points (0, 0) and (3, 4) is:","options":["3","4","5","7"],"correct_answer":"5","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","KCET-style","coordinate-geometry"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"}
 ]
