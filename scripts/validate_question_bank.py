@@ -11,9 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 QUESTION_ROOT = ROOT / "data" / "questions"
 SOLUTION_ROOT = ROOT / "data" / "solutions"
 ID_RE = re.compile(r"^[A-Z0-9-]+-[0-9]{4}-[0-9]{6}$")
-REQUIRED = {"question_id", "exam", "exam_year", "subject", "chapter", "topic", "difficulty", "question_type", "question_text", "correct_answer", "marks", "negative_marks", "source"}
+REQUIRED = {"question_id", "exam", "exam_year", "subject", "chapter", "topic", "difficulty", "question_type", "question_text", "correct_answer", "marks", "negative_marks", "source", "content_type", "rights_status", "redistribution_allowed"}
 ALLOWED_EXAMS = {"JEE Main", "JEE Advanced", "KCET", "MHT-CET", "BITSAT", "GAKAO", "SAT"}
 ALLOWED_DIFFICULTY = {"Easy", "Medium", "Hard"}
+ALLOWED_CONTENT_TYPES = {"original_exam_style", "official_pyq", "licensed_pyq", "public_domain", "open_license", "source_reference_only"}
+ALLOWED_RIGHTS = {"study_buddy_owned", "licensed", "public_domain", "open_license", "permission_granted", "pending_verification", "reference_only", "restricted"}
 
 
 def load(path: Path):
@@ -54,6 +56,16 @@ def main() -> int:
                 errors.append(f"{label}: unsupported exam")
             if q.get("difficulty") not in ALLOWED_DIFFICULTY:
                 errors.append(f"{label}: unsupported difficulty")
+            if q.get("content_type") not in ALLOWED_CONTENT_TYPES:
+                errors.append(f"{label}: unsupported content_type")
+            if q.get("rights_status") not in ALLOWED_RIGHTS:
+                errors.append(f"{label}: unsupported rights_status")
+            if not isinstance(q.get("redistribution_allowed"), bool):
+                errors.append(f"{label}: redistribution_allowed must be boolean")
+            if q.get("content_type") == "original_exam_style" and q.get("rights_status") != "study_buddy_owned":
+                errors.append(f"{label}: original_exam_style must be study_buddy_owned")
+            if q.get("rights_status") in {"pending_verification", "reference_only", "restricted"} and q.get("redistribution_allowed") is True:
+                errors.append(f"{label}: unverified/reference/restricted content cannot be redistributable")
             if q.get("negative_marks", 0) < 0:
                 errors.append(f"{label}: negative_marks cannot be below zero")
 
