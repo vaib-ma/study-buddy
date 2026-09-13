@@ -15,6 +15,34 @@
     "negative_marks": 1,
     "source": "Original Study Buddy sample",
     "source_reference": "stage-1-demo",
-    "tags": ["dimensions", "units", "kinematics"]
+    "tags": ["dimensions", "units", "kinematics"],
+    "content_type": "original_exam_style",
+    "rights_status": "study_buddy_owned",
+    "redistribution_allowed": true,
+    "rights_holder": "Study Buddy",
+    "license": "Study Buddy original content"
+  },
+  {
+    "question_id": "JEE-MAIN-PHY-2026-000002",
+    "exam": "JEE Main",
+    "exam_year": 2026,
+    "subject": "Physics",
+    "chapter": "Kinematics",
+    "topic": "Motion in a Straight Line",
+    "difficulty": "Easy",
+    "question_type": "MCQ",
+    "question_text": "A particle starts from rest and moves with constant acceleration 2 m/s^2. What is its speed after 5 s?",
+    "options": ["5 m/s", "10 m/s", "15 m/s", "20 m/s"],
+    "correct_answer": "10 m/s",
+    "marks": 4,
+    "negative_marks": 1,
+    "source": "Study Buddy Original",
+    "source_reference": "stage-1-original-bank",
+    "tags": ["kinematics", "acceleration", "velocity"],
+    "content_type": "original_exam_style",
+    "rights_status": "study_buddy_owned",
+    "redistribution_allowed": true,
+    "rights_holder": "Study Buddy",
+    "license": "Study Buddy original content"
   }
 ]
