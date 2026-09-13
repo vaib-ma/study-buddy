@@ -1,0 +1,4 @@
+[
+  {"question_id":"SAT-MAT-2026-000001","solution_type":"worked_solution","solution_text":"Subtract 7 from both sides: 3x = 15. Divide by 3 to get x = 5.","final_answer":"5","tips":["Undo addition or subtraction before dividing by the coefficient of the variable."]},
+  {"question_id":"SAT-MAT-2026-000002","solution_type":"worked_solution","solution_text":"Let the original price be 100. After a 20% increase it is 120. A 20% decrease from 120 is 24, giving 96. Thus the final price is 4% below the original.","final_answer":"4% lower","tips":["A percentage decrease is applied to the new value, not the original value."]}
+]
