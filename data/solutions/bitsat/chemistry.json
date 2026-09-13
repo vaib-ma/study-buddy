@@ -1,16 +1,6 @@
 [
-  {
-    "question_id": "BITSAT-CHE-2026-000001",
-    "solution_type": "conceptual",
-    "solution_text": "The azimuthal quantum number l determines the subshell and hence the shape of the orbital. For example, l = 0 gives s and l = 1 gives p orbitals.",
-    "final_answer": "Azimuthal quantum number l",
-    "tips": ["Remember: n mainly relates to shell/energy, while l identifies the subshell shape."]
-  },
-  {
-    "question_id": "BITSAT-CHE-2026-000002",
-    "solution_type": "conceptual",
-    "solution_text": "An exothermic reaction releases heat to the surroundings. At constant pressure, this corresponds to a negative enthalpy change.",
-    "final_answer": "Negative",
-    "tips": ["Heat released by a system corresponds to delta H < 0 at constant pressure."]
-  }
+  {"question_id":"BITSAT-CHE-2026-000001","solution_type":"conceptual","solution_text":"The azimuthal quantum number l determines the subshell and hence the shape of the orbital. For example, l = 0 gives s and l = 1 gives p orbitals.","final_answer":"Azimuthal quantum number l","tips":["Remember: n mainly relates to shell/energy, while l identifies the subshell shape."]},
+  {"question_id":"BITSAT-CHE-2026-000002","solution_type":"conceptual","solution_text":"An exothermic reaction releases heat to the surroundings. At constant pressure, this corresponds to a negative enthalpy change.","final_answer":"Negative","tips":["Heat released by a system corresponds to delta H < 0 at constant pressure."]},
+  {"question_id":"BITSAT-CHE-2026-000003","solution_type":"conceptual","solution_text":"In methane, carbon forms four sigma bonds using four equivalent sp3 hybrid orbitals, giving a tetrahedral arrangement.","final_answer":"sp3","tips":["Four electron domains around carbon in methane correspond to sp3 hybridization."]},
+  {"question_id":"BITSAT-CHE-2026-000004","solution_type":"conceptual","solution_text":"At 25 degrees C, pure water has equal concentrations of H+ and OH- ions, each about 1.0 x 10^-7 M. Therefore pH = 7.","final_answer":"7","tips":["At 25 degrees C, neutral water has pH 7."]}
 ]
