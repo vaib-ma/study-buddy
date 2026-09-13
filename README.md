@@ -2,15 +2,21 @@
 
 A data-first competitive-exam preparation platform for practice, tests, analytics, and ML-based study planning.
 
-## Stage 1 — Question & Solution Repository
+## Stage 1 — Question & Solution Repository ✓
 
 This repository starts with an exam-aware question/solution data layer. The same stable `question_id` is used in both the question and solution records so the application can retrieve the exact solution for a selected question.
 
-## Stage 2 — Database & Backend ← current
+## Stage 2 — Database & Backend ✓
 
-A FastAPI backend now exposes the Stage 1 repository through a stable API. The first implementation reads the JSON data directly; the storage layer can later be migrated to PostgreSQL without changing the frontend-facing API contract.
+A FastAPI backend exposes the Stage 1 repository through a stable API. The first implementation reads the JSON data directly; the storage layer can later be migrated to PostgreSQL without changing the frontend-facing API contract.
 
 See `backend/README.md` for setup and endpoints.
+
+## Stage 3 — Basic Practice Website ← current
+
+A React + Vite frontend now connects to the FastAPI API. Users can select an exam, subject, chapter, and difficulty, load a practice set, view questions, and reveal the exact matching solution by `question_id`.
+
+See `frontend/README.md` for setup.
 
 ### Current repository layout
 
@@ -32,6 +38,17 @@ backend/
 ├── app.py
 ├── requirements.txt
 └── README.md
+
+frontend/
+├── package.json
+├── index.html
+├── vite.config.js
+├── README.md
+└── src/
+    ├── main.jsx
+    ├── App.jsx
+    ├── api.js
+    └── styles.css
 
 schema/
 ├── question.schema.json
@@ -68,9 +85,9 @@ Every question also has `rights_status` and `redistribution_allowed`. See `docs/
 
 **Public availability does not automatically mean open-source.** We can add actual PYQs when a suitable permission/license or other verified lawful basis supports redistribution. Until then, the repository can store official-source metadata separately and use original exam-style questions for the working bank.
 
-## Current Stage 1 bank
+## Current question bank
 
-The repository currently contains **100 original exam-style questions with 100 matching worked/conceptual solutions** across all seven supported exam categories:
+The repository currently contains **100 original exam-style questions with 100 matching worked/conceptual solutions** across all seven supported exam categories. These are **not claimed to be official PYQs**.
 
 - JEE Main — Physics, Chemistry, Mathematics (9)
 - JEE Advanced — Physics, Chemistry, Mathematics (9)
@@ -78,9 +95,7 @@ The repository currently contains **100 original exam-style questions with 100 m
 - MHT-CET — Physics, Chemistry, Mathematics (6 each; 18 total)
 - BITSAT — Physics, Chemistry, Mathematics (6 each; 18 total)
 - GAKAO — Mathematics (10)
-- SAT — SAT Math (10), Reading and Writing (8) — **18 total**
-
-These are **not claimed to be official PYQs**.
+- SAT — SAT Math (10), Reading and Writing (8) — 18 total
 
 ## Backend API
 
@@ -92,6 +107,24 @@ These are **not claimed to be official PYQs**.
 - `GET /questions/{question_id}` — exact question by stable ID
 - `GET /solutions/{question_id}` — exact solution by stable ID
 - `GET /questions/{question_id}/solution` — exact question/solution join
+
+## Local development
+
+Start the backend:
+
+```bash
+python -m uvicorn backend.app:app --reload
+```
+
+In another terminal, start the frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+By default the frontend uses `http://127.0.0.1:8000` for the API and runs on `http://127.0.0.1:5173`.
 
 ## Importing more questions
 
@@ -126,8 +159,8 @@ GitHub Actions also runs the validator on pushes and pull requests targeting `ma
 ## Roadmap
 
 1. Question & Solution Repository ✓
-2. Database & Backend ← **current**
-3. Basic Practice Website
+2. Database & Backend ✓
+3. Basic Practice Website ← **current**
 4. Test Engine
 5. Basic Analysis
 6. Advanced Analysis
