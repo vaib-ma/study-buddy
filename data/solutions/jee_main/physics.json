@@ -12,5 +12,12 @@
     "solution_text": "Use v = u + at. The particle starts from rest, so u = 0. Therefore v = 0 + (2)(5) = 10 m/s.",
     "final_answer": "10 m/s",
     "tips": ["For constant acceleration, start with the standard kinematic equations.", "Starting from rest means initial velocity is zero."]
+  },
+  {
+    "question_id": "JEE-MAIN-PHY-2026-000003",
+    "solution_type": "worked_solution",
+    "solution_text": "By Newton's second law, F = ma. Therefore a = F/m = 12/3 = 4 m/s^2.",
+    "final_answer": "4 m/s^2",
+    "tips": ["Write the net force equation before substituting values."]
   }
 ]
