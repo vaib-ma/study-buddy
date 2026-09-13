@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://study-buddy.local/schema/solution.schema.json",
+  "title": "Study Buddy Solution",
+  "type": "object",
+  "required": ["question_id", "solution_text", "answer_explanation", "source"],
+  "properties": {
+    "question_id": {"type": "string", "pattern": "^[A-Z0-9-]+-[0-9]{4}-[0-9]{6}$"},
+    "solution_text": {"type": "string", "minLength": 1},
+    "answer_explanation": {"type": "string", "minLength": 1},
+    "final_answer": {"type": "string"},
+    "key_concepts": {"type": "array", "items": {"type": "string"}},
+    "common_mistakes": {"type": "array", "items": {"type": "string"}},
+    "source": {"type": "string", "minLength": 1},
+    "source_reference": {"type": "string"}
+  },
+  "additionalProperties": false
+}
