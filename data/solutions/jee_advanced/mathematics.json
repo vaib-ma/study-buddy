@@ -1,0 +1,4 @@
+[
+  {"question_id":"JEE-ADV-MAT-2026-000001","solution_type":"worked_solution","solution_text":"For z = a + bi, |z| = sqrt(a^2+b^2). Hence |3+4i| = sqrt(9+16) = 5.","final_answer":"5","tips":["Treat the real and imaginary parts as perpendicular components."]},
+  {"question_id":"JEE-ADV-MAT-2026-000002","solution_type":"worked_solution","solution_text":"Differentiate f(x) = x^3 - 3x to get f'(x) = 3x^2 - 3. At x = 2, f'(2) = 12 - 3 = 9.","final_answer":"9","tips":["Differentiate first, then substitute the required value."]}
+]
