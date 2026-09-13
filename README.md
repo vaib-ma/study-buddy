@@ -59,15 +59,15 @@ Every question also has `rights_status` and `redistribution_allowed`. See `docs/
 
 ## Current Stage 1 bank
 
-The repository currently contains **42 original exam-style questions with 42 matching worked/conceptual solutions** across all seven supported exam categories:
+The repository currently contains **64 original exam-style questions with 64 matching worked/conceptual solutions** across all seven supported exam categories:
 
 - JEE Main — Physics, Chemistry, Mathematics (9)
 - JEE Advanced — Physics, Chemistry, Mathematics (9)
-- KCET — Physics, Chemistry, Mathematics (6)
-- MHT-CET — Physics, Chemistry, Mathematics (6)
-- BITSAT — Physics, Chemistry, Mathematics (6)
-- GAKAO — Mathematics (2)
-- SAT — SAT Math, Reading and Writing (4)
+- KCET — Physics, Chemistry, Mathematics (12)
+- MHT-CET — Physics (4), Chemistry (2), Mathematics (4) — **10 total**
+- BITSAT — Physics, Chemistry, Mathematics (12)
+- GAKAO — Mathematics (5)
+- SAT — SAT Math (5), Reading and Writing (2) — **7 total**
 
 These are **not claimed to be official PYQs**.
 
