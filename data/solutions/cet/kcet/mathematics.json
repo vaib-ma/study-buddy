@@ -1,0 +1,16 @@
+[
+  {
+    "question_id": "KCET-MAT-2026-000001",
+    "solution_type": "worked_solution",
+    "solution_text": "For ax^2 + bx + c = 0, the sum of roots is -b/a. Here a = 1 and b = -7, so alpha + beta = 7.",
+    "final_answer": "7",
+    "tips": ["Use the standard root relations when only the sum or product is required."]
+  },
+  {
+    "question_id": "KCET-MAT-2026-000002",
+    "solution_type": "worked_solution",
+    "solution_text": "From the standard trigonometric values, sin 30 degrees = 1/2.",
+    "final_answer": "1/2",
+    "tips": ["Memorize the basic values of sin, cos and tan for 0, 30, 45, 60 and 90 degrees."]
+  }
+]
