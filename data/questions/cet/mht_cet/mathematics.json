@@ -1,44 +1,6 @@
 [
-  {
-    "question_id": "MHT-CET-MAT-2026-000001",
-    "exam": "MHT-CET",
-    "exam_year": 2026,
-    "subject": "Mathematics",
-    "chapter": "Sequences and Series",
-    "topic": "Arithmetic Progression",
-    "difficulty": "Easy",
-    "question_type": "MCQ",
-    "question_text": "The 5th term of the AP 3, 7, 11, ... is:",
-    "options": ["15", "17", "19", "21"],
-    "correct_answer": "19",
-    "marks": 1,
-    "negative_marks": 0,
-    "source": "Study Buddy original exam-style question",
-    "tags": ["original", "MHT-CET-style", "AP"],
-    "content_type": "original_exam_style",
-    "rights_status": "study_buddy_owned",
-    "redistribution_allowed": true,
-    "rights_holder": "Study Buddy"
-  },
-  {
-    "question_id": "MHT-CET-MAT-2026-000002",
-    "exam": "MHT-CET",
-    "exam_year": 2026,
-    "subject": "Mathematics",
-    "chapter": "Probability",
-    "topic": "Basic Probability",
-    "difficulty": "Easy",
-    "question_type": "MCQ",
-    "question_text": "A fair die is rolled once. What is the probability of obtaining an even number?",
-    "options": ["1/6", "1/3", "1/2", "2/3"],
-    "correct_answer": "1/2",
-    "marks": 1,
-    "negative_marks": 0,
-    "source": "Study Buddy original exam-style question",
-    "tags": ["original", "MHT-CET-style", "probability"],
-    "content_type": "original_exam_style",
-    "rights_status": "study_buddy_owned",
-    "redistribution_allowed": true,
-    "rights_holder": "Study Buddy"
-  }
+  {"question_id":"MHT-CET-MAT-2026-000001","exam":"MHT-CET","exam_year":2026,"subject":"Mathematics","chapter":"Sequences and Series","topic":"Arithmetic Progression","difficulty":"Easy","question_type":"MCQ","question_text":"The 5th term of the AP 3, 7, 11, ... is:","options":["15","17","19","21"],"correct_answer":"19","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","MHT-CET-style","AP"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"MHT-CET-MAT-2026-000002","exam":"MHT-CET","exam_year":2026,"subject":"Mathematics","chapter":"Probability","topic":"Basic Probability","difficulty":"Easy","question_type":"MCQ","question_text":"A fair die is rolled once. What is the probability of obtaining an even number?","options":["1/6","1/3","1/2","2/3"],"correct_answer":"1/2","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","MHT-CET-style","probability"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"MHT-CET-MAT-2026-000003","exam":"MHT-CET","exam_year":2026,"subject":"Mathematics","chapter":"Differential Calculus","topic":"Derivative","difficulty":"Easy","question_type":"MCQ","question_text":"If f(x) = x^2 + 3x, then f'(2) is:","options":["5","7","9","11"],"correct_answer":"7","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","MHT-CET-style","derivatives"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"},
+  {"question_id":"MHT-CET-MAT-2026-000004","exam":"MHT-CET","exam_year":2026,"subject":"Mathematics","chapter":"Matrices","topic":"Determinant of 2x2 Matrix","difficulty":"Medium","question_type":"MCQ","question_text":"The determinant of the matrix [[2, 1], [3, 4]] is:","options":["5","8","11","14"],"correct_answer":"5","marks":1,"negative_marks":0,"source":"Study Buddy original exam-style question","tags":["original","MHT-CET-style","matrices"],"content_type":"original_exam_style","rights_status":"study_buddy_owned","redistribution_allowed":true,"rights_holder":"Study Buddy"}
 ]
