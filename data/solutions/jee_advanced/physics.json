@@ -1,0 +1,4 @@
+[
+  {"question_id":"JEE-ADV-PHY-2026-000001","solution_type":"worked_solution","solution_text":"The work done equals the change in kinetic energy. W = 1/2 m(v^2-u^2) = 1/2(2)(25-4) = 21 J.","final_answer":"21 J","tips":["For a net force, work-energy theorem is often faster than finding displacement."]},
+  {"question_id":"JEE-ADV-PHY-2026-000002","solution_type":"conceptual","solution_text":"The electric-field contributions from the two identical charges cancel at the midpoint because they point in opposite directions. Electric potential is a scalar, so the two positive contributions add and give a positive non-zero value.","final_answer":"Positive and non-zero","tips":["Electric field is a vector; electric potential is a scalar."]}
+]
