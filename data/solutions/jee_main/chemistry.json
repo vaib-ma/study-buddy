@@ -1,0 +1,16 @@
+[
+  {
+    "question_id":"JEE-MAIN-CHE-2026-000001",
+    "solution_type":"worked_solution",
+    "solution_text":"Each O2 molecule contains two oxygen atoms. Therefore, an amount of 0.50 mol of O2 contains 0.50 x 2 = 1.00 mol of oxygen atoms.",
+    "final_answer":"1.00 mol",
+    "tips":["Multiply the amount of a molecular species by the number of atoms of the required element in each molecule."]
+  },
+  {
+    "question_id":"JEE-MAIN-CHE-2026-000002",
+    "solution_type":"worked_solution",
+    "solution_text":"The maximum number of electrons in a shell is 2n^2. For n = 3, the maximum is 2 x 3^2 = 18.",
+    "final_answer":"18",
+    "tips":["Remember the shell-capacity relation 2n^2."]
+  }
+]
