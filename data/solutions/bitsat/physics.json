@@ -1,4 +1,6 @@
 [
   {"question_id":"BITSAT-PHY-2026-000001","solution_type":"worked_solution","solution_text":"Electrical power is P = I^2R. Thus P = (2)^2(10) = 40 W.","final_answer":"40 W","tips":["Choose P = I^2R when current and resistance are given."]},
-  {"question_id":"BITSAT-PHY-2026-000002","solution_type":"worked_solution","solution_text":"Wave speed is v = f lambda = 50 x 2 = 100 m/s.","final_answer":"100 m/s","tips":["Use v = f lambda for a periodic wave."]}
+  {"question_id":"BITSAT-PHY-2026-000002","solution_type":"worked_solution","solution_text":"Wave speed is v = f lambda = 50 x 2 = 100 m/s.","final_answer":"100 m/s","tips":["Use v = f lambda for a periodic wave."]},
+  {"question_id":"BITSAT-PHY-2026-000003","solution_type":"worked_solution","solution_text":"Using v = u + at with u = 0, a = 2 m/s^2 and t = 5 s, v = 0 + 2(5) = 10 m/s.","final_answer":"10 m/s","tips":["For constant acceleration, start with the standard kinematic equations."]},
+  {"question_id":"BITSAT-PHY-2026-000004","solution_type":"conceptual","solution_text":"For a positive point charge, V = kQ/r. Since k, Q and r are positive for a finite distance, the potential is positive.","final_answer":"Always positive","tips":["Electric potential is a scalar and its sign follows the source charge in this case."]}
 ]
