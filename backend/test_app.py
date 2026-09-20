@@ -76,3 +76,51 @@ def test_test_creation_hides_answers_and_submission_is_one_time():
 def test_missing_solution_returns_404():
     response = client.get("/solutions/DOES-NOT-EXIST-2026-000001")
     assert response.status_code == 404
+
+def test_topics_are_scoped_to_selected_chapter():
+    chapters = client.get("/chapters", params={"exam": "JEE Main", "subject": "Physics"}).json()["chapters"]
+    assert chapters
+    topics = client.get(
+        "/topics",
+        params={"exam": "JEE Main", "subject": "Physics", "chapter": chapters[0]},
+    )
+    assert topics.status_code == 200
+    values = topics.json()["topics"]
+    assert values
+    filtered = client.get(
+        "/questions",
+        params={
+            "exam": "JEE Main",
+            "subject": "Physics",
+            "chapter": chapters[0],
+            "topic": values[0],
+            "limit": 100,
+        },
+    )
+    assert filtered.status_code == 200
+    assert all(q["topic"] == values[0] for q in filtered.json()["questions"])
+
+
+def test_test_creation_honors_topic_and_question_type():
+    chapters = client.get("/chapters", params={"exam": "JEE Main", "subject": "Physics"}).json()["chapters"]
+    assert chapters
+    topics = client.get(
+        "/topics",
+        params={"exam": "JEE Main", "subject": "Physics", "chapter": chapters[0]},
+    ).json()["topics"]
+    assert topics
+
+    created = client.post(
+        "/tests",
+        json={
+            "exam": "JEE Main",
+            "subject": "Physics",
+            "chapter": chapters[0],
+            "topic": topics[0],
+            "question_count": 1,
+            "duration_minutes": 5,
+        },
+    )
+    assert created.status_code == 200
+    assert created.json()["question_count"] == 1
+    assert created.json()["questions"][0]["topic"] == topics[0]
