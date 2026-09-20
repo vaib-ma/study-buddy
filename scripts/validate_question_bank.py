@@ -18,7 +18,7 @@ ALLOWED_CONTENT_TYPES = {"original_exam_style", "official_pyq", "licensed_pyq", 
 ALLOWED_RIGHTS = {"study_buddy_owned", "licensed", "public_domain", "open_license", "permission_granted", "pending_verification", "reference_only", "restricted"}
 ALLOWED_SUBJECTS = {"Physics", "Chemistry", "Mathematics", "SAT Math", "SAT Reading and Writing"}
 ALLOWED_TYPES = {"MCQ", "Multiple Correct", "Numerical", "Integer", "Assertion Reason", "Grid-In", "Subjective"}
-NON_REDISTRIBUTABLE = NON_REDISTRIBUTABLE
+NON_REDISTRIBUTABLE = {"pending_verification", "reference_only", "restricted"}
 NUMERIC_TYPES = {"Numerical", "Integer", "Grid-In"}
 
 
@@ -28,9 +28,9 @@ def load(path: Path):
 
 
 def main() -> int:
-    errors: list[str] = []
-    questions: dict[str, dict] = {}
-    solutions: dict[str, dict] = {}
+    errors = []
+    questions = {}
+    solutions = {}
 
     for path in sorted(QUESTION_ROOT.rglob("*.json")):
         try:
@@ -72,7 +72,7 @@ def main() -> int:
                 errors.append(f"{label}: redistribution_allowed must be boolean")
             if q.get("content_type") == "original_exam_style" and q.get("rights_status") != "study_buddy_owned":
                 errors.append(f"{label}: original_exam_style must be study_buddy_owned")
-            if q.get("rights_status") in {"pending_verification", "reference_only", "restricted"} and q.get("redistribution_allowed") is True:
+            if q.get("rights_status") in NON_REDISTRIBUTABLE and q.get("redistribution_allowed") is True:
                 errors.append(f"{label}: unverified/reference/restricted content cannot be redistributable")
             for field in ("chapter", "topic", "question_text", "correct_answer", "source"):
                 if not isinstance(q.get(field), str) or not q.get(field).strip():
