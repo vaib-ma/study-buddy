@@ -20,8 +20,11 @@ function App() {
   const [exam, setExam] = useState('');
   const [subject, setSubject] = useState('');
   const [chapter, setChapter] = useState('');
+  const [topic, setTopic] = useState('');
   const [difficulty, setDifficulty] = useState('');
+  const [questionType, setQuestionType] = useState('');
   const [questions, setQuestions] = useState([]);
+  const [totalQuestions, setTotalQuestions] = useState(0);
   const [solutions, setSolutions] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -64,7 +67,9 @@ function App() {
 
   useEffect(() => {
     setChapter('');
+    setTopic('');
     setQuestions([]);
+    setTotalQuestions(0);
     setSolutions({});
     if (!exam || !subject) {
       setChapters([]);
@@ -80,8 +85,9 @@ function App() {
     setError('');
     setSolutions({});
     try {
-      const data = await api.getQuestions({ exam, subject, chapter, difficulty, limit: 20 });
+      const data = await api.getQuestions({ exam, subject, chapter, topic, difficulty, question_type: questionType, limit: 20 });
       setQuestions(data.questions || []);
+      setTotalQuestions(data.total || 0);
       if (!data.questions?.length) setError('No questions match these filters.');
     } catch (e) {
       setError(e.message);
@@ -145,7 +151,9 @@ function App() {
             exam={exam} setExam={setExam}
             subject={subject} setSubject={setSubject}
             chapter={chapter} setChapter={setChapter}
+            topic={topic} setTopic={setTopic}
             difficulty={difficulty} setDifficulty={setDifficulty}
+            questionType={questionType} setQuestionType={setQuestionType}
             exams={exams} subjects={subjects} chapters={chapters}
             loading={loading} loadQuestions={loadQuestions} startTest={startTest}
             disabled={backendStatus !== 'connected'}
@@ -185,7 +193,7 @@ function App() {
   );
 }
 
-function SelectionPanel({ exam, setExam, subject, setSubject, chapter, setChapter, difficulty, setDifficulty, exams, subjects, chapters, loading, loadQuestions, startTest, disabled }) {
+function SelectionPanel({ exam, setExam, subject, setSubject, chapter, setChapter, topic, setTopic, difficulty, setDifficulty, questionType, setQuestionType, exams, subjects, chapters, loading, loadQuestions, startTest, disabled }) {
   return (
     <section className="hero-area">
       <div className="hero">
@@ -207,7 +215,9 @@ function SelectionPanel({ exam, setExam, subject, setSubject, chapter, setChapte
           <Select label="Exam" value={exam} onChange={setExam} options={exams} placeholder="Choose exam" labels={EXAM_LABELS} disabled={disabled} />
           <Select label="Subject" value={subject} onChange={setSubject} options={subjects} placeholder="All subjects" disabled={disabled || !exam} />
           <Select label="Chapter" value={chapter} onChange={setChapter} options={chapters} placeholder="All chapters" disabled={disabled || !subject} />
+          <input className="topic-input" value={topic} onChange={e => setTopic(e.target.value)} placeholder="Optional topic filter" disabled={disabled || !subject} aria-label="Topic filter" />
           <Select label="Difficulty" value={difficulty} onChange={setDifficulty} options={['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard', 'Extreme']} placeholder="Any level" disabled={disabled} />
+          <Select label="Question type" value={questionType} onChange={setQuestionType} options={['MCQ', 'Multiple Correct', 'Numerical', 'Integer', 'Assertion Reason', 'Grid-In', 'Subjective']} placeholder="Any type" disabled={disabled} />
         </div>
 
         <div className="button-row">
@@ -255,7 +265,7 @@ function Practice({ questions, solutions, setSolutions, setError }) {
     <section className="questions-section">
       <div className="section-heading">
         <div><span className="step">02</span><h2>Practice</h2></div>
-        <span className="count">{questions.length} loaded</span>
+        <span className="count">{questions.length} shown · {totalQuestions} matching</span>
       </div>
 
       {questions.length === 0 ? (
