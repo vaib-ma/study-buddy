@@ -13,7 +13,7 @@ SOLUTION_ROOT = ROOT / "data" / "solutions"
 ID_RE = re.compile(r"^[A-Z0-9-]+-[0-9]{4}-[0-9]{6}$")
 REQUIRED = {"question_id", "exam", "exam_year", "subject", "chapter", "topic", "difficulty", "question_type", "question_text", "correct_answer", "marks", "negative_marks", "source", "content_type", "rights_status", "redistribution_allowed"}
 ALLOWED_EXAMS = {"JEE Main", "JEE Advanced", "KCET", "MHT-CET", "BITSAT", "GAKAO", "SAT"}
-ALLOWED_DIFFICULTY = {"Easy", "Medium", "Hard"}
+ALLOWED_DIFFICULTY = {"Very Easy", "Easy", "Medium", "Hard", "Very Hard", "Extreme"}
 ALLOWED_CONTENT_TYPES = {"original_exam_style", "official_pyq", "licensed_pyq", "public_domain", "open_license", "source_reference_only"}
 ALLOWED_RIGHTS = {"study_buddy_owned", "licensed", "public_domain", "open_license", "permission_granted", "pending_verification", "reference_only", "restricted"}
 
