@@ -12,7 +12,8 @@
     "@vitejs/plugin-react": "latest",
     "vite": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "better-react-mathjax": "^3.0.2"
   },
   "devDependencies": {}
 }
