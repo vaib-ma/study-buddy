@@ -38,6 +38,37 @@ select:focus { border-color: #9aaed2; box-shadow: 0 0 0 3px rgba(102,128,176,.1)
 .questions-section { margin-top: 38px; }
 .section-heading { margin-bottom: 15px; }
 .question-list { display: grid; gap: 15px; }
+
+.question-text,
+.test-question-text,
+.solution-explanation {
+  line-height: 1.75;
+}
+
+.question-text mjx-container,
+.test-question-text mjx-container,
+.solution-explanation mjx-container {
+  margin: 0.35rem 0;
+}
+
+.option-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.option-text mjx-container {
+  margin: 0.15rem 0;
+}
+
+.answer-math {
+  display: inline;
+}
+
+.answer-math mjx-container {
+  display: inline-block !important;
+  margin: 0 0.15rem;
+}
+
 .question-card { padding: 22px; }
 .question-meta { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 15px; }
 .question-meta span { background: #f2f5f9; color: #667182; border-radius: 999px; padding: 5px 9px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; }
