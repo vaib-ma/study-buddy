@@ -47,8 +47,11 @@ function normalizeMathBody(value) {
 function normalizeMathText(value) {
   let text = String(value ?? '').replace(/^#{1,6}\s*/gm, '');
 
-  text = text.replace(/\$\$([\s\S]*?)\$\$/g, (_, body) => '$' + normalizeMathBody(body) + '$');
-  text = text.replace(/\$([^$\n]+)\$/g, (_, body) => '
+  text = text.replace(/\$\$([\s\S]*?)\$\$/g, (_, body) => '$$' + normalizeMathBody(body) + '$$');
+  text = text.replace(/\$([^$\n]+)\$/g, (_, body) => '$' + normalizeMathBody(body) + '$');
+  text = text.replace(/\\\(([^]*?)\\\)/g, (_, body) => '\\(' + normalizeMathBody(body) + '\\)');
+  text = text.replace(/\\\[([^]*?)\\\]/g, (_, body) => '\\[' + normalizeMathBody(body) + '\\]');
+
   return text;
 }
 
