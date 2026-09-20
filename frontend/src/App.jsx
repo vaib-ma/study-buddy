@@ -136,7 +136,7 @@ function App() {
           <span className="status-dot" />
           {backendStatus === 'connected' ? 'Backend connected' : backendStatus === 'checking' ? 'Connecting…' : 'Backend offline'}
         </div>
-        <div className="stage-pill">Stage 4 · Test Engine</div>
+        <div className="stage-pill">Stage 1 · Question Bank</div>
       </header>
 
       <main className="container">
@@ -180,7 +180,7 @@ function App() {
         {result && <Results result={result} onAgain={resetTest} />}
       </main>
 
-      <footer>Study Buddy · Original exam-style practice content · Stage 4 test engine</footer>
+      <footer>Study Buddy · 1,833-question validated bank · Practice &amp; timed tests</footer>
     </div>
   );
 }
@@ -194,20 +194,20 @@ function SelectionPanel({ exam, setExam, subject, setSubject, chapter, setChapte
           <h1>Practice with purpose.</h1>
           <p>Choose your exam, filter the question bank, practice with solutions, or start a timed test.</p>
         </div>
-        <div className="hero-stat"><strong>100</strong><span>original questions</span></div>
+        <div className="hero-stat"><strong>1,833</strong><span>questions &amp; solutions</span></div>
       </div>
 
       <section className="filters card">
         <div className="section-title">
           <div><span className="step">01</span><h2>Choose your test</h2></div>
-          <span className="muted">10 questions · 15 minutes</span>
+          <span className="muted">Practice or start a timed test</span>
         </div>
 
         <div className="filter-grid">
           <Select label="Exam" value={exam} onChange={setExam} options={exams} placeholder="Choose exam" labels={EXAM_LABELS} disabled={disabled} />
           <Select label="Subject" value={subject} onChange={setSubject} options={subjects} placeholder="All subjects" disabled={disabled || !exam} />
           <Select label="Chapter" value={chapter} onChange={setChapter} options={chapters} placeholder="All chapters" disabled={disabled || !subject} />
-          <Select label="Difficulty" value={difficulty} onChange={setDifficulty} options={['Easy', 'Medium', 'Hard']} placeholder="Any level" disabled={disabled} />
+          <Select label="Difficulty" value={difficulty} onChange={setDifficulty} options={['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard', 'Extreme']} placeholder="Any level" disabled={disabled} />
         </div>
 
         <div className="button-row">
