@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import json
 import random
+import re
 import uuid
+import math
 from pathlib import Path
 from typing import Any
 
@@ -14,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 QUESTIONS_DIR = ROOT / "data" / "questions"
 SOLUTIONS_DIR = ROOT / "data" / "solutions"
 
-app = FastAPI(title="Study Buddy API", version="0.2.0")
+app = FastAPI(title="Study Buddy API", version="0.3.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -58,6 +60,33 @@ def load_solutions() -> dict[str, dict[str, Any]]:
     return solutions
 
 
+def normalize_answer(value: Any) -> str:
+    text = str(value or "").strip().lower()
+    text = text.replace("−", "-").replace("–", "-").replace("×", "*")
+    text = re.sub(r"\\s+", "", text)
+    text = re.sub(r"\\boption[-_ ]?([a-d])\\b", r"\\1", text)
+    return text
+
+
+def answers_match(submitted: Any, expected: Any, question: dict[str, Any]) -> bool:
+    a = normalize_answer(submitted)
+    b = normalize_answer(expected)
+    if not a or not b:
+        return False
+    if a == b:
+        return True
+
+    # Numerical/integer answers commonly arrive with harmless formatting differences.
+    if question.get("question_type") in {"Numerical", "Integer", "Grid-In"}:
+        try:
+            av = float(a)
+            bv = float(b)
+            return math.isclose(av, bv, rel_tol=1e-9, abs_tol=1e-9)
+        except ValueError:
+            pass
+    return False
+
+
 def public_question(question: dict[str, Any]) -> dict[str, Any]:
     # Never expose the answer key through normal practice/test question APIs.
     result = dict(question)
@@ -91,7 +120,7 @@ def filter_questions(
 @app.get("/health")
 def health() -> dict[str, Any]:
     questions = load_questions()
-    return {"status": "ok", "question_count": len(questions), "api_version": "0.2.0"}
+    return {"status": "ok", "question_count": len(questions), "api_version": "0.3.0"}
 
 
 @app.get("/exams")
@@ -230,7 +259,7 @@ def submit_test(test_id: str, request: TestSubmitRequest) -> dict[str, Any]:
         if submitted is None or submitted == "":
             status = "unanswered"
             unanswered += 1
-        elif str(submitted).strip() == str(expected).strip():
+        elif answers_match(submitted, expected, question):
             status = "correct"
             correct += 1
             score += question.get("marks", 0)
