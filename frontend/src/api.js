@@ -29,6 +29,7 @@ export const api = {
   getExams: () => request('/exams'),
   getSubjects: (exam) => request(`/subjects?exam=${encodeURIComponent(exam)}`),
   getChapters: (exam, subject) => request(`/chapters?exam=${encodeURIComponent(exam)}&subject=${encodeURIComponent(subject)}`),
+  getTopics: (exam, subject, chapter) => request(`/topics?exam=${encodeURIComponent(exam)}&subject=${encodeURIComponent(subject)}&chapter=${encodeURIComponent(chapter)}`),
   getQuestions: (filters = {}) => {
     const params = new URLSearchParams();
     Object.entries(filters).forEach(([key, value]) => {
