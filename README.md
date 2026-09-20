@@ -97,7 +97,13 @@ The repository currently contains **100 original exam-style questions with 100 m
 - GAKAO — Mathematics (10)
 - SAT — SAT Math (10), Reading and Writing (8) — 18 total
 
-## Backend API
+## Stage 3 — Basic Practice Website ✓
+
+The React + Vite frontend connects to the FastAPI API for exam/subject/chapter filtering, practice questions, and exact solution retrieval.
+
+## Stage 4 — Test Engine ← current
+
+The backend now supports timed test sessions with randomized question selection, server-side answer checking, marks/negative-mark scoring, submission, and question-level results. The frontend provides navigation, a countdown timer, answer selection, automatic timeout submission, and a results review screen.
 
 - `GET /health` — API status and question count
 - `GET /exams` — supported exams
