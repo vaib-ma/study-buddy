@@ -202,7 +202,8 @@ function App() {
   }
 
   return (
-    <div className="app-shell">
+    <MathJaxContext version={4} config={MATHJAX_CONFIG} hideUntilTypeset="first">
+      <div className="app-shell">
       <header className="topbar">
         <div className="brand-mark">SB</div>
         <div>
@@ -260,8 +261,9 @@ function App() {
         {result && <Results result={result} onAgain={resetTest} />}
       </main>
 
-      <footer>Study Buddy · 1,833-question validated bank · Practice &amp; timed tests</footer>
-    </div>
+        <footer>Study Buddy · 1,833-question validated bank · Practice &amp; timed tests</footer>
+      </div>
+    </MathJaxContext>
   );
 }
 
