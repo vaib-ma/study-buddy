@@ -63,8 +63,8 @@ def load_solutions() -> dict[str, dict[str, Any]]:
 def normalize_answer(value: Any) -> str:
     text = str(value or "").strip().lower()
     text = text.replace("−", "-").replace("–", "-").replace("×", "*")
-    text = re.sub(r"\\s+", "", text)
-    text = re.sub(r"\\boption[-_ ]?([a-d])\\b", r"\\1", text)
+    text = re.sub(r"\s+", "", text)
+    text = re.sub(r"\boption[-_ ]?([a-d])\b", r"\1", text)
     return text
 
 
