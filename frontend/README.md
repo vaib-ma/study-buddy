@@ -1,6 +1,6 @@
 # Study Buddy frontend
 
-Stage 3 is a React + Vite practice interface for the FastAPI backend.
+Stage 3/4 is a React + Vite interface for the FastAPI backend.
 
 ## Run locally
 
@@ -31,9 +31,21 @@ VITE_API_BASE_URL=http://your-backend-host:8000 npm run dev
 - Exam → subject → chapter filtering
 - Difficulty filtering
 - Loads questions from the backend API
-- Displays MCQ options when supplied by the question record
-- Fetches the exact matching solution using the immutable `question_id`
-- Responsive desktop/mobile layout
-- Loading and API error states
+- Displays MCQ options
+- Fetches the exact matching solution using immutable `question_id`
 
-Timed tests, scoring, analytics, accounts, ads, premium, and ML study planning are intentionally left for later roadmap stages.
+## Stage 4 features
+
+- Creates a server-side test session
+- Randomly selects questions matching the chosen filters
+- Timed 15-minute test by default
+- Previous/next navigation
+- Answer selection
+- Automatic submission when the timer reaches zero
+- Manual submission
+- Server-side scoring using marks and negative marks
+- Correct/wrong/unanswered counts
+- Accuracy and question-by-question review
+- Answer keys are removed from normal question responses so the browser does not receive them before submission
+
+Stage 4 test sessions currently live in backend memory. They are intentionally a prototype; persistent accounts, saved attempts, analytics, and production database storage come in later stages.
