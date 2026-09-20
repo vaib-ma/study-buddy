@@ -16,6 +16,10 @@ ALLOWED_EXAMS = {"JEE Main", "JEE Advanced", "KCET", "MHT-CET", "BITSAT", "GAKAO
 ALLOWED_DIFFICULTY = {"Very Easy", "Easy", "Medium", "Hard", "Very Hard", "Extreme"}
 ALLOWED_CONTENT_TYPES = {"original_exam_style", "official_pyq", "licensed_pyq", "public_domain", "open_license", "source_reference_only"}
 ALLOWED_RIGHTS = {"study_buddy_owned", "licensed", "public_domain", "open_license", "permission_granted", "pending_verification", "reference_only", "restricted"}
+ALLOWED_SUBJECTS = {"Physics", "Chemistry", "Mathematics", "SAT Math", "SAT Reading and Writing"}
+ALLOWED_TYPES = {"MCQ", "Multiple Correct", "Numerical", "Integer", "Assertion Reason", "Grid-In", "Subjective"}
+NON_REDISTRIBUTABLE = NON_REDISTRIBUTABLE
+NUMERIC_TYPES = {"Numerical", "Integer", "Grid-In"}
 
 
 def load(path: Path):
@@ -54,8 +58,12 @@ def main() -> int:
                 questions[qid] = q
             if q.get("exam") not in ALLOWED_EXAMS:
                 errors.append(f"{label}: unsupported exam")
+            if q.get("subject") not in ALLOWED_SUBJECTS:
+                errors.append(f"{label}: unsupported subject")
             if q.get("difficulty") not in ALLOWED_DIFFICULTY:
                 errors.append(f"{label}: unsupported difficulty")
+            if q.get("question_type") not in ALLOWED_TYPES:
+                errors.append(f"{label}: unsupported question_type")
             if q.get("content_type") not in ALLOWED_CONTENT_TYPES:
                 errors.append(f"{label}: unsupported content_type")
             if q.get("rights_status") not in ALLOWED_RIGHTS:
@@ -66,8 +74,28 @@ def main() -> int:
                 errors.append(f"{label}: original_exam_style must be study_buddy_owned")
             if q.get("rights_status") in {"pending_verification", "reference_only", "restricted"} and q.get("redistribution_allowed") is True:
                 errors.append(f"{label}: unverified/reference/restricted content cannot be redistributable")
-            if q.get("negative_marks", 0) < 0:
-                errors.append(f"{label}: negative_marks cannot be below zero")
+            for field in ("chapter", "topic", "question_text", "correct_answer", "source"):
+                if not isinstance(q.get(field), str) or not q.get(field).strip():
+                    errors.append(f"{label}: {field} must be a non-empty string")
+            if not isinstance(q.get("exam_year"), int) or not 1900 <= q["exam_year"] <= 2100:
+                errors.append(f"{label}: invalid exam_year")
+            if not isinstance(q.get("marks"), (int, float)) or q["marks"] < 0:
+                errors.append(f"{label}: marks must be non-negative")
+            if q.get("question_type") in {"MCQ", "Multiple Correct"}:
+                options = q.get("options")
+                if not isinstance(options, list) or len(options) < 2 or any(not isinstance(x, str) or not x.strip() for x in options):
+                    errors.append(f"{label}: MCQ/Multi-correct questions need at least 2 non-empty options")
+                elif q.get("question_type") == "MCQ" and q.get("correct_answer") not in options:
+                    errors.append(f"{label}: correct_answer must be one of options")
+            if q.get("question_type") in NUMERIC_TYPES:
+                try:
+                    float(str(q.get("correct_answer")).strip())
+                except (TypeError, ValueError):
+                    errors.append(f"{label}: numeric question has non-numeric correct_answer")
+            if q.get("content_type") == "open_license" and (q.get("rights_status") != "open_license" or not q.get("license") or not q.get("license_reference")):
+                errors.append(f"{label}: open_license content needs open_license rights, license and license_reference")
+            if q.get("content_type") in {"licensed_pyq", "official_pyq"} and not q.get("source_reference"):
+                errors.append(f"{label}: licensed/official content needs source_reference")
 
     for path in sorted(SOLUTION_ROOT.rglob("*.json")):
         try:
