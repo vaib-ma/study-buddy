@@ -1,17 +1,20 @@
 from __future__ import annotations
 
 import json
+import random
+import uuid
 from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parents[1]
 QUESTIONS_DIR = ROOT / "data" / "questions"
 SOLUTIONS_DIR = ROOT / "data" / "solutions"
 
-app = FastAPI(title="Study Buddy API", version="0.1.0")
+app = FastAPI(title="Study Buddy API", version="0.2.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,6 +22,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+TEST_SESSIONS: dict[str, dict[str, Any]] = {}
 
 
 def load_json(path: Path) -> Any:
@@ -54,14 +59,39 @@ def load_solutions() -> dict[str, dict[str, Any]]:
 
 
 def public_question(question: dict[str, Any]) -> dict[str, Any]:
-    # Solutions are deliberately not embedded in question responses.
-    return dict(question)
+    # Never expose the answer key through normal practice/test question APIs.
+    result = dict(question)
+    result.pop("correct_answer", None)
+    return result
+
+
+def filter_questions(
+    items: list[dict[str, Any]],
+    exam: str | None = None,
+    subject: str | None = None,
+    chapter: str | None = None,
+    topic: str | None = None,
+    difficulty: str | None = None,
+    question_type: str | None = None,
+) -> list[dict[str, Any]]:
+    filters = {
+        "exam": exam,
+        "subject": subject,
+        "chapter": chapter,
+        "topic": topic,
+        "difficulty": difficulty,
+        "question_type": question_type,
+    }
+    for key, value in filters.items():
+        if value:
+            items = [q for q in items if str(q.get(key, "")).lower() == value.lower()]
+    return items
 
 
 @app.get("/health")
 def health() -> dict[str, Any]:
     questions = load_questions()
-    return {"status": "ok", "question_count": len(questions), "api_version": "0.1.0"}
+    return {"status": "ok", "question_count": len(questions), "api_version": "0.2.0"}
 
 
 @app.get("/exams")
@@ -101,22 +131,133 @@ def questions(
     limit: int = Query(default=20, ge=1, le=100),
     offset: int = Query(default=0, ge=0),
 ) -> dict[str, Any]:
-    items = load_questions()
-    filters = {
-        "exam": exam,
-        "subject": subject,
-        "chapter": chapter,
-        "topic": topic,
-        "difficulty": difficulty,
-        "question_type": question_type,
-    }
-    for key, value in filters.items():
-        if value:
-            items = [q for q in items if str(q.get(key, "")).lower() == value.lower()]
+    items = filter_questions(
+        load_questions(), exam, subject, chapter, topic, difficulty, question_type
+    )
     items.sort(key=lambda q: q.get("question_id", ""))
     total = len(items)
     page = items[offset : offset + limit]
-    return {"total": total, "offset": offset, "limit": limit, "questions": [public_question(q) for q in page]}
+    return {
+        "total": total,
+        "offset": offset,
+        "limit": limit,
+        "questions": [public_question(q) for q in page],
+    }
+
+
+class TestCreateRequest(BaseModel):
+    exam: str
+    subject: str | None = None
+    chapter: str | None = None
+    difficulty: str | None = None
+    question_count: int = Field(default=10, ge=1, le=50)
+    duration_minutes: int = Field(default=30, ge=1, le=180)
+
+
+class TestSubmitRequest(BaseModel):
+    answers: dict[str, str] = Field(default_factory=dict)
+
+
+@app.post("/tests")
+def create_test(request: TestCreateRequest) -> dict[str, Any]:
+    candidates = filter_questions(
+        load_questions(),
+        request.exam,
+        request.subject,
+        request.chapter,
+        difficulty=request.difficulty,
+    )
+    if not candidates:
+        raise HTTPException(status_code=404, detail="No questions match these filters")
+    if len(candidates) < request.question_count:
+        question_count = len(candidates)
+    else:
+        question_count = request.question_count
+
+    selected = random.sample(candidates, question_count)
+    test_id = uuid.uuid4().hex
+    TEST_SESSIONS[test_id] = {
+        "question_ids": [q["question_id"] for q in selected],
+        "duration_minutes": request.duration_minutes,
+        "exam": request.exam,
+        "submitted": False,
+    }
+    return {
+        "test_id": test_id,
+        "duration_minutes": request.duration_minutes,
+        "question_count": question_count,
+        "questions": [public_question(q) for q in selected],
+    }
+
+
+@app.get("/tests/{test_id}")
+def get_test(test_id: str) -> dict[str, Any]:
+    session = TEST_SESSIONS.get(test_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Test session not found")
+    questions_by_id = {q["question_id"]: q for q in load_questions()}
+    selected = [questions_by_id[qid] for qid in session["question_ids"] if qid in questions_by_id]
+    return {
+        "test_id": test_id,
+        "duration_minutes": session["duration_minutes"],
+        "question_count": len(selected),
+        "submitted": session["submitted"],
+        "questions": [public_question(q) for q in selected],
+    }
+
+
+@app.post("/tests/{test_id}/submit")
+def submit_test(test_id: str, request: TestSubmitRequest) -> dict[str, Any]:
+    session = TEST_SESSIONS.get(test_id)
+    if not session:
+        raise HTTPException(status_code=404, detail="Test session not found")
+    if session["submitted"]:
+        raise HTTPException(status_code=409, detail="Test already submitted")
+
+    questions_by_id = {q["question_id"]: q for q in load_questions()}
+    results = []
+    score = 0
+    correct = 0
+    wrong = 0
+    unanswered = 0
+
+    for question_id in session["question_ids"]:
+        question = questions_by_id.get(question_id)
+        if not question:
+            continue
+        submitted = request.answers.get(question_id)
+        expected = question.get("correct_answer")
+        if submitted is None or submitted == "":
+            status = "unanswered"
+            unanswered += 1
+        elif str(submitted).strip() == str(expected).strip():
+            status = "correct"
+            correct += 1
+            score += question.get("marks", 0)
+        else:
+            status = "wrong"
+            wrong += 1
+            score -= question.get("negative_marks", 0)
+
+        results.append({
+            "question_id": question_id,
+            "selected_answer": submitted,
+            "correct_answer": expected,
+            "status": status,
+            "marks": question.get("marks", 0),
+            "negative_marks": question.get("negative_marks", 0),
+        })
+
+    session["submitted"] = True
+    return {
+        "test_id": test_id,
+        "score": score,
+        "correct": correct,
+        "wrong": wrong,
+        "unanswered": unanswered,
+        "total": len(results),
+        "results": results,
+    }
 
 
 @app.get("/questions/{question_id}")
@@ -137,7 +278,6 @@ def solution(question_id: str) -> dict[str, Any]:
 
 @app.get("/questions/{question_id}/solution")
 def question_solution(question_id: str) -> dict[str, Any]:
-    # Explicit join by the immutable question_id.
     question_item = next((q for q in load_questions() if q.get("question_id") == question_id), None)
     if question_item is None:
         raise HTTPException(status_code=404, detail="Question not found")
