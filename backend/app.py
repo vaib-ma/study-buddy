@@ -149,6 +149,23 @@ def chapters(exam: str | None = None, subject: str | None = None) -> dict[str, l
     return {"chapters": values}
 
 
+@app.get("/topics")
+def topics(
+    exam: str | None = None,
+    subject: str | None = None,
+    chapter: str | None = None,
+) -> dict[str, list[str]]:
+    questions = load_questions()
+    if exam:
+        questions = [q for q in questions if q.get("exam", "").lower() == exam.lower()]
+    if subject:
+        questions = [q for q in questions if q.get("subject", "").lower() == subject.lower()]
+    if chapter:
+        questions = [q for q in questions if q.get("chapter", "").lower() == chapter.lower()]
+    values = sorted({q.get("topic", "") for q in questions if q.get("topic")})
+    return {"topics": values}
+
+
 @app.get("/questions")
 def questions(
     exam: str | None = None,
@@ -178,7 +195,9 @@ class TestCreateRequest(BaseModel):
     exam: str
     subject: str | None = None
     chapter: str | None = None
+    topic: str | None = None
     difficulty: str | None = None
+    question_type: str | None = None
     question_count: int = Field(default=10, ge=1, le=50)
     duration_minutes: int = Field(default=30, ge=1, le=180)
 
@@ -194,7 +213,9 @@ def create_test(request: TestCreateRequest) -> dict[str, Any]:
         request.exam,
         request.subject,
         request.chapter,
+        topic=request.topic,
         difficulty=request.difficulty,
+        question_type=request.question_type,
     )
     if not candidates:
         raise HTTPException(status_code=404, detail="No questions match these filters")
