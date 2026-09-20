@@ -99,14 +99,17 @@ def main():
                 qt = str(row.get("question_type") or "").strip().lower()
                 opts = [str(row.get(f"option_{i}") or "").strip() for i in range(1, 5)]
                 opts = [x for x in opts if x]
-                if qt == "single_correct" and row.get("correct_option"):
+                if qt == "single_correct" and row.get("correct_option") and len(opts) >= 2:
                     try:
                         idx = int(row["correct_option"]) - 1
                         answer = opts[idx] if 0 <= idx < len(opts) else raw_answer
                     except (TypeError, ValueError):
                         answer = raw_answer
-                    qtype = "MCQ" if opts else "Subjective"
+                    qtype = "MCQ"
                 else:
+                    # Some source rows are labelled single_correct but have
+                    # incomplete option extraction. Keep them as answerable
+                    # Subjective questions instead of creating broken MCQs.
                     answer = raw_answer
                     qtype = "Numerical" if qt in ("numerical", "integer") else "Subjective"
                 if not text or not answer:
