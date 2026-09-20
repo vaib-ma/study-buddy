@@ -17,6 +17,7 @@ function App() {
   const [exams, setExams] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [chapters, setChapters] = useState([]);
+  const [topics, setTopics] = useState([]);
   const [exam, setExam] = useState('');
   const [subject, setSubject] = useState('');
   const [chapter, setChapter] = useState('');
@@ -54,7 +55,9 @@ function App() {
     setSubject('');
     setChapter('');
     setChapters([]);
+    setTopics([]);
     setQuestions([]);
+    setTotalQuestions(0);
     setSolutions({});
     if (!exam) {
       setSubjects([]);
@@ -68,6 +71,7 @@ function App() {
   useEffect(() => {
     setChapter('');
     setTopic('');
+    setTopics([]);
     setQuestions([]);
     setTotalQuestions(0);
     setSolutions({});
@@ -79,6 +83,19 @@ function App() {
       .then(data => setChapters(data.chapters || []))
       .catch(e => setError(e.message));
   }, [exam, subject]);
+
+
+  useEffect(() => {
+    setTopic('');
+    setTopics([]);
+    setQuestions([]);
+    setTotalQuestions(0);
+    setSolutions({});
+    if (!exam || !subject || !chapter) return;
+    api.getTopics(exam, subject, chapter)
+      .then(data => setTopics(data.topics || []))
+      .catch(e => setError(e.message));
+  }, [exam, subject, chapter]);
 
   async function loadQuestions() {
     setLoading(true);
@@ -105,7 +122,9 @@ function App() {
         exam,
         subject: subject || null,
         chapter: chapter || null,
+        topic: topic || null,
         difficulty: difficulty || null,
+        question_type: questionType || null,
         question_count: 10,
         duration_minutes: 15,
       });
@@ -154,7 +173,7 @@ function App() {
             topic={topic} setTopic={setTopic}
             difficulty={difficulty} setDifficulty={setDifficulty}
             questionType={questionType} setQuestionType={setQuestionType}
-            exams={exams} subjects={subjects} chapters={chapters}
+            exams={exams} subjects={subjects} chapters={chapters} topics={topics}
             loading={loading} loadQuestions={loadQuestions} startTest={startTest}
             disabled={backendStatus !== 'connected'}
           />
@@ -170,6 +189,7 @@ function App() {
         {mode === 'practice' && !result && (
           <Practice
             questions={questions}
+            totalQuestions={totalQuestions}
             solutions={solutions}
             setSolutions={setSolutions}
             setError={setError}
@@ -193,7 +213,7 @@ function App() {
   );
 }
 
-function SelectionPanel({ exam, setExam, subject, setSubject, chapter, setChapter, topic, setTopic, difficulty, setDifficulty, questionType, setQuestionType, exams, subjects, chapters, loading, loadQuestions, startTest, disabled }) {
+function SelectionPanel({ exam, setExam, subject, setSubject, chapter, setChapter, topic, setTopic, difficulty, setDifficulty, questionType, setQuestionType, exams, subjects, chapters, topics, loading, loadQuestions, startTest, disabled }) {
   return (
     <section className="hero-area">
       <div className="hero">
@@ -215,7 +235,7 @@ function SelectionPanel({ exam, setExam, subject, setSubject, chapter, setChapte
           <Select label="Exam" value={exam} onChange={setExam} options={exams} placeholder="Choose exam" labels={EXAM_LABELS} disabled={disabled} />
           <Select label="Subject" value={subject} onChange={setSubject} options={subjects} placeholder="All subjects" disabled={disabled || !exam} />
           <Select label="Chapter" value={chapter} onChange={setChapter} options={chapters} placeholder="All chapters" disabled={disabled || !subject} />
-          <input className="topic-input" value={topic} onChange={e => setTopic(e.target.value)} placeholder="Optional topic filter" disabled={disabled || !subject} aria-label="Topic filter" />
+          <Select label="Topic" value={topic} onChange={setTopic} options={topics} placeholder={chapter ? 'All topics' : 'Choose chapter first'} disabled={disabled || !chapter} />
           <Select label="Difficulty" value={difficulty} onChange={setDifficulty} options={['Very Easy', 'Easy', 'Medium', 'Hard', 'Very Hard', 'Extreme']} placeholder="Any level" disabled={disabled} />
           <Select label="Question type" value={questionType} onChange={setQuestionType} options={['MCQ', 'Multiple Correct', 'Numerical', 'Integer', 'Assertion Reason', 'Grid-In', 'Subjective']} placeholder="Any type" disabled={disabled} />
         </div>
@@ -245,7 +265,7 @@ function Select({ label, value, onChange, options, placeholder, disabled, labels
   );
 }
 
-function Practice({ questions, solutions, setSolutions, setError }) {
+function Practice({ questions, totalQuestions, solutions, setSolutions, setError }) {
   const [loadingId, setLoadingId] = useState('');
 
   async function showSolution(id) {
